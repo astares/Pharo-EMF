@@ -359,6 +359,19 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_GiVPsdyrEeaL-Oc9zDM6lQ" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GiVPstyrEeaL-Oc9zDM6lQ" x="291" y="70"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_3UX68NyuEeaL-Oc9zDM6lQ" type="Note" fontName="Segoe UI" description="Some Annotation" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8ESmsNyuEeaL-Oc9zDM6lQ" source="EAnnotation0"/>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_3U4RQNyuEeaL-Oc9zDM6lQ" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_3U44UNyuEeaL-Oc9zDM6lQ" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_3UX68dyuEeaL-Oc9zDM6lQ"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_3UX68tyuEeaL-Oc9zDM6lQ"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3UX689yuEeaL-Oc9zDM6lQ" x="550" y="55"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_layAB9yqEeaL-Oc9zDM6lQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_GiXE4NyrEeaL-Oc9zDM6lQ" type="4001" element="_Gh5K0dyrEeaL-Oc9zDM6lQ" source="_FqJqgNyrEeaL-Oc9zDM6lQ" target="_GiVPsNyrEeaL-Oc9zDM6lQ">
           <children xmi:type="notation:Node" xmi:id="_GiXE5NyrEeaL-Oc9zDM6lQ" type="6001">
@@ -410,7 +423,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Gh38sNyrEeaL-Oc9zDM6lQ" name="uuid : EString" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Gh38sNyrEeaL-Oc9zDM6lQ" name="uuid : EString = String new" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="UML_XMI_Extensions.ecore#//Model/XMIElement/uuid"/>
         <semanticElements xmi:type="ecore:EAttribute" href="UML_XMI_Extensions.ecore#//Model/XMIElement/uuid"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Gh38sdyrEeaL-Oc9zDM6lQ" labelAlignment="LEFT">
