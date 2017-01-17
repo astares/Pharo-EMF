@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML-XMI-Extensions">
-  <eSubpackages name="Model">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML_XMI_Extensions" nsURI="http://pharo.org/XMI" nsPrefix="xmi">
+  <eSubpackages name="Model" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EClass" name="XMIElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="String new"/>

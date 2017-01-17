@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML-Core-Model" nsPrefix="">
-  <eSubpackages name="Model">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML_Core_Model" nsURI="http://pharo.org/UML" nsPrefix="uml">
+  <eSubpackages name="Model" nsURI="href://pharo.org/UML" nsPrefix="uml">
     <eClassifiers xsi:type="ecore:EClass" name="UMLElement" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLNamedElement"/>
   </eSubpackages>
 </ecore:EPackage>
