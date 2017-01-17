@@ -12,5 +12,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UML_XMI_Extensions.ecore#//Model/XMIElement/uuid"/>
     </genClasses>
     <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIModel"/>
+    <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel"/>
   </genPackages>
 </genmodel:GenModel>
