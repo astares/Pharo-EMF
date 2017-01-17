@@ -10,8 +10,11 @@
   <genPackages prefix="Model" ecorePackage="UML_XMI_Extensions.ecore#//Model">
     <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UML_XMI_Extensions.ecore#//Model/XMIElement/uuid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UML_Core_Model.ecore#//Model/UMLElement/id"/>
     </genClasses>
     <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIModel"/>
-    <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel"/>
+    <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel/stereotypeName"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
