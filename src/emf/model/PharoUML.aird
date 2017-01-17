@@ -3,6 +3,9 @@
   <viewpoint:DAnalysis xmi:id="_8UtM0NykEeaL-Oc9zDM6lQ" selectedViews="_8X2ncNykEeaL-Oc9zDM6lQ" version="11.1.0.201608251200">
     <semanticResources>PharoUML.ecore</semanticResources>
     <semanticResources>PharoUML.genmodel</semanticResources>
+    <semanticResources>UMLXMIExtensions.ecore</semanticResources>
+    <semanticResources>UML-XMI-Extensions.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_8X2ncNykEeaL-Oc9zDM6lQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_8Yrt4NykEeaL-Oc9zDM6lQ" name="PharoUML" representation="_8YsU8NykEeaL-Oc9zDM6lQ">
