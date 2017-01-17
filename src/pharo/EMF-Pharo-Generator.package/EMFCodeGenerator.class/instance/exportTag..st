@@ -5,5 +5,5 @@ exportTag: anXMINode
 	
 	anXMINode children do: [:each |
 		self exportClassFor: each	
-	]
+	] separatedBy: [ stream cr ]
 	

@@ -9,7 +9,8 @@
 		"xmiFile",
 		"package",
 		"tag",
-		"stream"
+		"stream",
+		"attributes"
 	],
 	"name" : "EMFCodeGenerator",
 	"type" : "normal"
