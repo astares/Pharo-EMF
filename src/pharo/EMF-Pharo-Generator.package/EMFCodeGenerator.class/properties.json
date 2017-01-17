@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "TorstenBergmann 1/17/2017 12:52",
+	"super" : "Object",
+	"category" : "EMF-Pharo-Generator",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"xmiFile",
+		"package",
+		"tag",
+		"stream"
+	],
+	"name" : "EMFCodeGenerator",
+	"type" : "normal"
+}

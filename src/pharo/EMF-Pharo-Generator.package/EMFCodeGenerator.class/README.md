@@ -1,0 +1,1 @@
+A simple code generator to generate Pharo code from EMF XMI eCore model
