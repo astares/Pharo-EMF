@@ -3,11 +3,21 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML_XMI_Extensions" nsURI="http://pharo.org/XMI" nsPrefix="xmi">
   <eSubpackages name="Model" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EClass" name="XMIElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="XMI Core Element identified by a unique ID"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="String new" iD="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XMIModel" eSuperTypes="#//Model/XMIElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XMIModel" eSuperTypes="#//Model/XMIElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="XMI Core Element Model"/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMIExtensibleModel" eSuperTypes="#//Model/XMIModel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="XMI Core Element of an extensible model"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>

@@ -3,9 +3,13 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UML_Core_Model" nsURI="http://pharo.org/UML" nsPrefix="uml">
   <eSubpackages name="Model" nsURI="href://pharo.org/UML" nsPrefix="uml">
     <eClassifiers xsi:type="ecore:EClass" name="UMLElement" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIExtensibleModel">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          iD="true"/>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element is an atomic constituent of a model"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLNamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLNamedElement" eSuperTypes="#//Model/UMLElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
