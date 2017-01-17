@@ -4,7 +4,7 @@
   <eSubpackages name="Model" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EClass" name="XMIElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral="String new"/>
+          defaultValueLiteral="String new" iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMIModel" eSuperTypes="#//Model/XMIElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="XMIExtensibleModel" eSuperTypes="#//Model/XMIModel">
