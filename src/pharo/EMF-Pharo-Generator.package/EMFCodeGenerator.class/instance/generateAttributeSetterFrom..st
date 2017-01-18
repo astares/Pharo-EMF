@@ -8,4 +8,4 @@ generateAttributeSetterFrom: anXMINode
 {2}: {3}
 	"Sets the {2} of the receiver to the given {4}."
 	
-	{2} := {3}! !' format: { theClass. anXMINode name. typeAdd. type })
+	{2} := {3}! !' format: { theClass. anXMINode name asLowercase. typeAdd. type })
