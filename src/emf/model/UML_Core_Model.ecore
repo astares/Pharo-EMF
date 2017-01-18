@@ -12,9 +12,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Named elements"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLModelElement" eSuperTypes="#//Model/UMLNamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLModelElement" eSuperTypes="#//Model/UMLNamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" eType="#//Enumerations/UMLVisibilityKind"
+          defaultValueLiteral="Public"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLNamedElement"/>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
