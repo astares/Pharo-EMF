@@ -17,8 +17,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="UMLModelElement" eSuperTypes="#//Model/UMLNamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" eType="#//Enumerations/UMLVisibilityKind"
           defaultValueLiteral="Public"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpecification" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLNamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Body" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EEnum" name="UMLVisibilityKind">
