@@ -11,7 +11,8 @@
 		"tag",
 		"stream",
 		"theClass",
-		"attributes"
+		"attributes",
+		"stamp"
 	],
 	"name" : "EMFCodeGenerator",
 	"type" : "normal"

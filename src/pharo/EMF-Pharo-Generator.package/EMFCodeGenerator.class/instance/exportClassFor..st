@@ -14,9 +14,14 @@ exportClassFor: aXMINode
 	attributes do: [:attr | stream nextPutAll: attr name ] separatedBy: [ stream space ].
 	stream nextPutAll: ''''.
 	stream cr;tab; nextPutAll: 'classVariableNames: '''''.
-	stream cr;tab; nextPutAll: ('package: ''{1}''!' format: { category}).
+	stream cr;tab; nextPutAll: 'poolDictionaries: '''''.
+	stream cr;tab; nextPutAll: ('category: ''{1}''!' format: { category}).
 	
-	self generateClassCommentFor: aXMINode 
+	self generateClassCommentFor: aXMINode.
+	self generateAttributeAccessors.
 	
+	category := nil.
+	attributes := nil.
+	 
 	
 	
