@@ -6,7 +6,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="XMI Core Element identified by a unique ID"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"
           defaultValueLiteral="String new" iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMIModel" eSuperTypes="#//Model/XMIElement">
@@ -18,7 +18,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="XMI Core Element of an extensible model"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypeName" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

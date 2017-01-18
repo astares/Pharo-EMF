@@ -6,6 +6,11 @@
   <foreignModel>PharoUML.ecore</foreignModel>
   <genPackages prefix="PharoUML" disposableProviderFactory="true" ecorePackage="PharoUML.ecore#/">
     <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIModel"/>
+    <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="PharoUML.ecore#//Pharo">
+      <genDataTypes ecoreDataType="PharoUML.ecore#//Pharo/String"/>
+      <genDataTypes ecoreDataType="PharoUML.ecore#//Pharo/Boolean"/>
+      <genDataTypes ecoreDataType="PharoUML.ecore#//Pharo/Integer"/>
+    </nestedGenPackages>
   </genPackages>
   <genPackages prefix="Model" ecorePackage="UML_XMI_Extensions.ecore#//Model">
     <genClasses ecoreClass="UML_XMI_Extensions.ecore#//Model/XMIElement">
