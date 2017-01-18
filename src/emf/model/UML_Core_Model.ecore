@@ -15,16 +15,29 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLModelElement" eSuperTypes="#//Model/UMLNamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A model element is an element that is an abstraction drawn from the system being modeled. Contrast with view element, which is an element whose purpose is to provide a presentation of information for human comprehension.&#xD;&#xA;&#xD;&#xA;In the metamodel, a ModelElement is a named entity in a Model. It is the base for all modeling metaclasses in the UML. All other modeling metaclasses are either direct or indirect subclasses of ModelElement.&#xD;&#xA;&#xD;&#xA;Each ModelElement can be regarded as a template. A template has a set of templateParameters that denotes which of the parts of a ModelElement are the template parameters. A ModelElement is a template when there is at least one template parameter. If it is not a template, a ModelElement cannot have template parameters. However, such embedded parameters are not usually complete and need not satisfy well-formedness rules. It is the arguments supplied when the template is instantiated that must be well formed.&#xD;&#xA;&#xD;&#xA;Partially instantiated templates are allowed. This is the case when there are arguments provided for some, but not all templateParameters. A partially instantiated template is still a template, since it still has parameters."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" eType="#//Enumerations/UMLVisibilityKind"
           defaultValueLiteral="Public"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpecification" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Body" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A comment is an annotation attached to a model element or a set of model elements. It has no semantic force but may contain information useful to the modeler."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Body" eType="ecore:EDataType PharoUML.ecore#//Pharo/String">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A string that is the comment."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EEnum" name="UMLVisibilityKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In the metamodel VisibilityKind defines an enumeration that denotes how the element to which it refers is seen outside the enclosing name space."/>
+      </eAnnotations>
       <eLiterals name="Package"/>
       <eLiterals name="Private" value="1"/>
       <eLiterals name="Protected" value="2"/>
