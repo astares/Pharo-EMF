@@ -27,6 +27,8 @@
           eOpposite="#//Model/UMLTemplateParameter/Parameter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemplateParameter" upperBound="-1"
           eType="#//Model/UMLTemplateParameter" containment="true" eOpposite="#//Model/UMLTemplateParameter/Template"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultParameter" upperBound="-1"
+          eType="#//Model/UMLTemplateParameter" eOpposite="#//Model/UMLTemplateParameter/DefaultElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -41,11 +43,16 @@
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/Comment"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateParameter" eSuperTypes="#//Model/UMLElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines the relationship between a template (a ModelElement) and its parameter (a ModelElement). A ModelElement with at least one templateParameter association is a template (by definition)."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" lowerBound="1"
           eType="#//Model/UMLModelElement" containment="true" eOpposite="#//Model/UMLModelElement/ParameterOwner"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterType" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Template" lowerBound="1"
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/TemplateParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultElement" eType="#//Model/UMLModelElement"
+          eOpposite="#//Model/UMLModelElement/DefaultParameter"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
