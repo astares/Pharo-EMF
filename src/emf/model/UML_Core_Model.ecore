@@ -23,6 +23,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpecification" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Comment" upperBound="-1"
           eType="#//Model/UMLComment" eOpposite="#//Model/UMLComment/AnnotatedElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterOwner" eType="#//Model/UMLTemplateParameter"
+          eOpposite="#//Model/UMLTemplateParameter/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TemplateParameter" upperBound="-1"
+          eType="#//Model/UMLTemplateParameter" containment="true" eOpposite="#//Model/UMLTemplateParameter/Template"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -35,6 +39,13 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AnnotatedElement" upperBound="-1"
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/Comment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateParameter" eSuperTypes="#//Model/UMLElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" lowerBound="1"
+          eType="#//Model/UMLModelElement" containment="true" eOpposite="#//Model/UMLModelElement/ParameterOwner"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterType" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Template" lowerBound="1"
+          eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/TemplateParameter"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
