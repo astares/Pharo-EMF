@@ -5,4 +5,4 @@ generateAttributeGetterFrom: anXMINode
 {2}
 	"Returns the {2} of the receiver."
 	
-	^ {2}! !' format: { theClass. anXMINode name asLowercase })
+	^ {2}! !' format: { theClass. anXMINode name uncapitalized })

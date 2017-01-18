@@ -11,7 +11,7 @@ exportClassFor: aXMINode
 	stream cr; nextPutAll: ('{1} subclass: #{2}' format: { superType. theClass }).
 	stream cr;tab; nextPutAll: 'instanceVariableNames: '''.
 	
-	attributes do: [:attr | stream nextPutAll: attr name ] separatedBy: [ stream space ].
+	attributes do: [:attr | stream nextPutAll: attr name uncapitalized ] separatedBy: [ stream space ].
 	stream nextPutAll: ''''.
 	stream cr;tab; nextPutAll: 'classVariableNames: '''''.
 	stream cr;tab; nextPutAll: 'poolDictionaries: '''''.
