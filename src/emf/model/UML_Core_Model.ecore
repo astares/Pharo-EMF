@@ -15,5 +15,14 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLModelElement" eSuperTypes="#//Model/UMLNamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLNamedElement"/>
+  </eSubpackages>
+  <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLVisibilityKind">
+      <eLiterals name="Package"/>
+      <eLiterals name="Private" value="1"/>
+      <eLiterals name="Protected" value="2"/>
+      <eLiterals name="Public" value="3"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
