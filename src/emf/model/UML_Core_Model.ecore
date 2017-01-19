@@ -29,6 +29,8 @@
           eType="#//Model/UMLTemplateParameter" containment="true" eOpposite="#//Model/UMLTemplateParameter/Template"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultParameter" upperBound="-1"
           eType="#//Model/UMLTemplateParameter" eOpposite="#//Model/UMLTemplateParameter/DefaultElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TemplateArgument" eType="#//Model/UMLTemplateArgument"
+          eOpposite="#//Model/UMLTemplateArgument/ModelElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -53,6 +55,10 @@
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/TemplateParameter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultElement" eType="#//Model/UMLModelElement"
           eOpposite="#//Model/UMLModelElement/DefaultParameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateArgument" eSuperTypes="#//Model/UMLElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ModelElement" lowerBound="1"
+          eType="#//Model/UMLModelElement" containment="true" eOpposite="#//Model/UMLModelElement/TemplateArgument"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
