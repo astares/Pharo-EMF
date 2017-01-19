@@ -57,11 +57,45 @@
           eOpposite="#//Model/UMLModelElement/DefaultParameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateArgument" eSuperTypes="#//Model/UMLElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reifies the relationship between a Binding and one of its arguments (a ModelElement)."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ModelElement" lowerBound="1"
           eType="#//Model/UMLModelElement" containment="true" eOpposite="#//Model/UMLModelElement/TemplateArgument"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralizableElement" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A generalizable element is a model element that may participate in a generalization relationship."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeave" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAbstract" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLNamespace" eSuperTypes="#//Model/UMLGeneralizableElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A namespace is a part of a model that contains a set of ModelElements each of whose names designates a unique element within the namespace.&#xD;&#xA;&#xD;&#xA;In the metamodel, a Namespace is a ModelElement that can own other ModelElements, like Associations and Classifiers. The name of each owned ModelElement must be unique within the Namespace. Moreover, each contained ModelElement is owned by at most one Namespace. The concrete subclasses of Namespace have additional constraints on which kind of elements may be contained. Namespace is an abstract metaclass.&#xD;&#xA;&#xD;&#xA;Note that explicit parts of a model element, such as the features of a Classifier, are not modeled as owned elements in a namespace. A namespace is used for unstructured contents such as the contents of a package or a class declared inside the scope of another class."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLClassifier" eSuperTypes="#//Model/UMLNamespace">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Classifier is the metamodel superclass of Class, DataType, and Interface. All of these have similar syntax and are therefore all notated using the rectangle symbol with keywords used as necessary. Because classes are most common in diagrams, a rectangle without a keyword represents a class, and the other subclasses of Classifier are indicated with keywords. In the sections that follow, the discussion will focus on Class, but most of the notation applies to the other element kinds as semantically appropriate and as described later under their own sections."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLGeneralizableElement"/>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLPseudostateKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In the metamodel, PseudostateKind defines an enumeration that discriminates the kind of Pseudostate."/>
+      </eAnnotations>
+      <eLiterals name="Choice"/>
+      <eLiterals name="Decision" value="1"/>
+      <eLiterals name="DeepHistory" value="2"/>
+      <eLiterals name="Initial" value="3"/>
+      <eLiterals name="Junction" value="4"/>
+      <eLiterals name="ShallowHistory" value="5"/>
+      <eLiterals name="Synchronisation" value="6"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UMLVisibilityKind">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="In the metamodel VisibilityKind defines an enumeration that denotes how the element to which it refers is seen outside the enclosing name space."/>
@@ -70,6 +104,70 @@
       <eLiterals name="Private" value="1"/>
       <eLiterals name="Protected" value="2"/>
       <eLiterals name="Public" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLAggregationKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An enumeration that denotes what kind of aggregation an Association is. When placed on a target end, specifies the relationship of the target end to the source end."/>
+      </eAnnotations>
+      <eLiterals name="Aggregate"/>
+      <eLiterals name="Composite" value="1"/>
+      <eLiterals name="None" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLCallConcurrencyKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An enumeration that denotes the semantics of multiple concurrent calls to the same passive instance; that is, an Instance originating from a Classifier with isActive=false."/>
+      </eAnnotations>
+      <eLiterals name="Concurrent"/>
+      <eLiterals name="Guarded" value="1"/>
+      <eLiterals name="Sequential" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLChangeableKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In the metamodel ChangeableKind defines an enumeration that denotes how an AttributeLink or LinkEnd may be modified."/>
+      </eAnnotations>
+      <eLiterals name="AddOnly"/>
+      <eLiterals name="Changeable" value="1"/>
+      <eLiterals name="Frozen" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLInteractionOperatorKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Interaction operators"/>
+      </eAnnotations>
+      <eLiterals name="Alt"/>
+      <eLiterals name="Assert" value="1"/>
+      <eLiterals name="Break" value="2"/>
+      <eLiterals name="Consider" value="3"/>
+      <eLiterals name="Ignore" value="4"/>
+      <eLiterals name="Loop" value="5"/>
+      <eLiterals name="Neg" value="6"/>
+      <eLiterals name="Opt" value="7"/>
+      <eLiterals name="Par" value="8"/>
+      <eLiterals name="Region" value="9"/>
+      <eLiterals name="Seq" value="10"/>
+      <eLiterals name="Strict" value="11"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLOrderingKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines an enumeration that specifies how the elements of a set are arranged. Used in conjunction with elements that have a multiplicity in cases when the multiplicity value modify the set. The intent is that the set of enumeration literals be open for new values to be added by tools for purposes of design, code generation, etc. For example, a value of sorted might be used for a design specification."/>
+      </eAnnotations>
+      <eLiterals name="Ordered"/>
+      <eLiterals name="Unordered" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLParameterDirectionKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In the metamodel ParameterDirectionKind defines an enumeration that denotes if a Parameter is used for supplying an argument and/or for returning a value."/>
+      </eAnnotations>
+      <eLiterals name="In"/>
+      <eLiterals name="Inout" value="1"/>
+      <eLiterals name="Out" value="2"/>
+      <eLiterals name="Return" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLScopeKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In the metamodel ScopeKind defines an enumeration that denotes whether a feature belongs to individual instances or an entire classifier."/>
+      </eAnnotations>
+      <eLiterals name="Classifier"/>
+      <eLiterals name="Instance" value="1"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
