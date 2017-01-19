@@ -31,6 +31,8 @@
           eType="#//Model/UMLTemplateParameter" eOpposite="#//Model/UMLTemplateParameter/DefaultElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemplateArgument" eType="#//Model/UMLTemplateArgument"
           eOpposite="#//Model/UMLTemplateArgument/ModelElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Namespace" eType="#//Model/UMLNamespace"
+          eOpposite="#//Model/UMLNamespace/OwnedElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -75,13 +77,95 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A namespace is a part of a model that contains a set of ModelElements each of whose names designates a unique element within the namespace.&#xD;&#xA;&#xD;&#xA;In the metamodel, a Namespace is a ModelElement that can own other ModelElements, like Associations and Classifiers. The name of each owned ModelElement must be unique within the Namespace. Moreover, each contained ModelElement is owned by at most one Namespace. The concrete subclasses of Namespace have additional constraints on which kind of elements may be contained. Namespace is an abstract metaclass.&#xD;&#xA;&#xD;&#xA;Note that explicit parts of a model element, such as the features of a Classifier, are not modeled as owned elements in a namespace. A namespace is used for unstructured contents such as the contents of a package or a class declared inside the scope of another class."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedElement" ordered="false"
+          upperBound="-1" eType="#//Model/UMLModelElement" containment="true" eOpposite="#//Model/UMLModelElement/Namespace"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLClassifier" eSuperTypes="#//Model/UMLNamespace">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Classifier is the metamodel superclass of Class, DataType, and Interface. All of these have similar syntax and are therefore all notated using the rectangle symbol with keywords used as necessary. Because classes are most common in diagrams, a rectangle without a keyword represents a class, and the other subclasses of Classifier are indicated with keywords. In the sections that follow, the discussion will focus on Class, but most of the notation applies to the other element kinds as semantically appropriate and as described later under their own sections."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TypedParameter" upperBound="-1"
+          eType="#//Model/UMLParameter" eOpposite="#//Model/UMLParameter/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Model/UMLOperation"
+          containment="true" eOpposite="#//Model/UMLOperation/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" upperBound="-1"
+          eType="#//Model/UMLAttribute" containment="true" eOpposite="#//Model/UMLAttribute/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TypedFeature" upperBound="-1"
+          eType="#//Model/UMLStructuralFeature" eOpposite="#//Model/UMLStructuralFeature/Type"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLGeneralizableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A feature is a property, like operation or attribute, which is encapsulated within a Classifier."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="OwnerScope" eType="#//Enumerations/UMLScopeKind"
+          defaultValueLiteral="Instance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMethod" eSuperTypes="#//Model/UMLBehavioralFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A method is the implementation of an operation. It specifies the algorithm or procedure that effects the results of an operation.&#xD;&#xA;&#xD;&#xA;In the metamodel, a Method is a declaration of a named piece of behavior in a Classifier and realizes one (directly) or a set (indirectly) of Operations of the Classifier.&#xD;&#xA;&#xD;&#xA;There may be at most one method for a particular classifier (as owner of the method) and operation (as specification of the method) pairing.&#xD;&#xA;&#xD;&#xA;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Body" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Specification" lowerBound="1"
+          eType="#//Model/UMLOperation" eOpposite="#//Model/UMLOperation/Method"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLOperation" eSuperTypes="#//Model/UMLBehavioralFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An operation is a service that can be requested from an object to effect behavior. An operation has a signature, which describes the actual parameters that are possible (including possible return values).&#xD;&#xA;&#xD;&#xA;In the metamodel, an Operation is a BehavioralFeature that can be applied to the Instances of the Classifier that contains the Operation."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Concurrency" eType="#//Enumerations/UMLCallConcurrencyKind"
+          defaultValueLiteral="Sequential"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAbstract" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Specification" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Method" upperBound="-1"
+          eType="#//Model/UMLMethod" eOpposite="#//Model/UMLMethod/Specification"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/Operation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLParameter" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A parameter is an unbound variable that can be changed, passed, or returned. A parameter may include a name, type, and direction of communication. Parameters are used in the specification of operations, messages and events, templates, etc.&#xD;&#xA;&#xD;&#xA;In the metamodel, a Parameter is a declaration of an argument to be passed to, or returned from, an Operation, a Signal, etc."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DefaultValue" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DirectionKind" eType="#//Enumerations/UMLParameterDirectionKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TypeExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/TypedParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="BehavioralFeature" eType="#//Model/UMLBehavioralFeature"
+          eOpposite="#//Model/UMLBehavioralFeature/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLBehavioralFeature" eSuperTypes="#//Model/UMLFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A behavioral feature refers to a dynamic feature of a model element, such as an operation or method."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsQuery" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" upperBound="-1"
+          eType="#//Model/UMLParameter" containment="true" eOpposite="#//Model/UMLParameter/BehavioralFeature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAttribute" eSuperTypes="#//Model/UMLStructuralFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An attribute is a named slot within a classifier that describes a range of values that instances of the classifier may hold."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitialValue" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/Attribute"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStructuralFeature" eSuperTypes="#//Model/UMLFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A structural feature refers to a static feature of a model element, such as an attribute.&#xD;&#xA;&#xD;&#xA;In the metamodel, a StructuralFeature declares a structural aspect of an Instance of a Classifier, such as an Attribute. For example, it specifies the multiplicity and changeability of the StructuralFeature. StructuralFeature is an abstract metaclass.&#xD;&#xA;&#xD;&#xA;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Changeability" eType="#//Enumerations/UMLChangeableKind"
+          defaultValueLiteral="Changeable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetScope" eType="#//Enumerations/UMLScopeKind"
+          defaultValueLiteral="Instance"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ordering" eType="#//Enumerations/UMLOrderingKind"
+          defaultValueLiteral="Unordered"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TypeExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/TypedFeature"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
     <eClassifiers xsi:type="ecore:EEnum" name="UMLPseudostateKind">
