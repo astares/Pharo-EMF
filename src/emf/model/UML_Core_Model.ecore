@@ -106,6 +106,8 @@
           eType="#//Model/UMLPort" eOpposite="#//Model/UMLPort/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedConnector" upperBound="-1"
           eType="#//Model/UMLConnector" containment="true" eOpposite="#//Model/UMLConnector/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Association" upperBound="-1"
+          eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/Participant"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -166,6 +168,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitialValue" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
           eOpposite="#//Model/UMLClassifier/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEnd" eType="#//Model/UMLAssociationEnd"
+          eOpposite="#//Model/UMLAssociationEnd/Qualifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLStructuralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -187,6 +191,8 @@
         <details key="documentation" value="A class is a description of a set of objects that share the same attributes, operations, methods, relationships, and semantics. A class may use a set of interfaces to specify collections of operations it provides to its environment."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsActive" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationClass" eType="#//Model/UMLAssociationClass"
+          eOpposite="#//Model/UMLAssociationClass/ClassSide"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLInterface" eSuperTypes="#//Model/UMLClassifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -301,9 +307,46 @@
         <details key="documentation" value="A relationship is a connection among model elements.&#xD;&#xA;&#xD;&#xA;In the metamodel, Relationship is a term of convenience without any specific semantics. It is abstract.&#xD;&#xA;&#xD;&#xA;Children of Relationship are Association, Dependency, Flow, and Generalization."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationClass"/>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEnd"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationClass" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An association class is an association that is also a class. It not only connects a set of classifiers but also defines a set of features that belong to the relationship itself and not any of the classifiers."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClassSide" lowerBound="1"
+          eType="#//Model/UMLClass" eOpposite="#//Model/UMLClass/AssociationClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationSide" lowerBound="1"
+          eType="#//Model/UMLAssociation" eOpposite="#//Model/UMLAssociation/AssociationClass"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociation" eSuperTypes="#//Model/UMLRelationship">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An association defines a semantic relationship between classifiers. The instances of an association are a set of tuples relating instances of the classifiers. Each tuple value may appear at most once."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Connection" upperBound="-1"
+          eType="#//Model/UMLAssociationEnd" containment="true" eOpposite="#//Model/UMLAssociationEnd/Association"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationClass" eType="#//Model/UMLAssociationClass"
+          eOpposite="#//Model/UMLAssociationClass/AssociationSide"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEnd" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An association end is an endpoint of an association, which connects the association to a classifier. Each association end is part of one association. The association-ends of each association are ordered."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Qualifier" upperBound="-1"
+          eType="#//Model/UMLAttribute" containment="true" eOpposite="#//Model/UMLAttribute/AssociationEnd"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Participant" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/Association"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Association" lowerBound="1"
+          eType="#//Model/UMLAssociation" eOpposite="#//Model/UMLAssociation/Connection"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsNavigable" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"
+          defaultValueLiteral="True"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ordering" eType="#//Enumerations/UMLOrderingKind"
+          defaultValueLiteral="Ordered"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AggregationKind" eType="#//Enumerations/UMLAggregationKind"
+          defaultValueLiteral="None"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetScope" eType="#//Enumerations/UMLScopeKind"
+          defaultValueLiteral="Instance"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Changeability" eType="#//Enumerations/UMLChangeableKind"
+          defaultValueLiteral="Changeable"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralization" eSuperTypes="#//Model/UMLRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A generalization is a taxonomic relationship between a more general element and a more specific element. The more specific element is fully consistent with the more general element (it has all of its properties, members, and relationships) and may contain additional information."/>
