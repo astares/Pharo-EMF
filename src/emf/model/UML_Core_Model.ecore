@@ -108,6 +108,8 @@
           eType="#//Model/UMLConnector" containment="true" eOpposite="#//Model/UMLConnector/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Association" upperBound="-1"
           eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/Participant"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PowertypeGeneralization"
+          upperBound="-1" eType="#//Model/UMLGeneralization" eOpposite="#//Model/UMLGeneralization/Powertype"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -356,6 +358,8 @@
           eType="#//Model/UMLGeneralizableElement" eOpposite="#//Model/UMLGeneralizableElement/Generalization"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" lowerBound="1"
           eType="#//Model/UMLGeneralizableElement" eOpposite="#//Model/UMLGeneralizableElement/Specialization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Powertype" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/PowertypeGeneralization"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
