@@ -39,6 +39,8 @@
           eType="#//Model/UMLDependency" eOpposite="#//Model/UMLDependency/Supplier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ClientDependency" upperBound="-1"
           eType="#//Model/UMLDependency" eOpposite="#//Model/UMLDependency/Client"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ElementImport" upperBound="-1"
+          eType="#//Model/UMLElementImport" eOpposite="#//Model/UMLElementImport/ImportedElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -360,6 +362,46 @@
           eType="#//Model/UMLGeneralizableElement" eOpposite="#//Model/UMLGeneralizableElement/Specialization"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Powertype" eType="#//Model/UMLClassifier"
           eOpposite="#//Model/UMLClassifier/PowertypeGeneralization"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLPackage" eSuperTypes="#//Model/UMLClassifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A package is a grouping of model elements. In the metamodel Package is a subclass of Namespace and GeneralizableElement. A Package contains ModelElements like Packages, Classifiers, and Associations. A Package may also contain Constraints and Dependencies between ModelElements of the Package."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ElementImportItem" upperBound="-1"
+          eType="#//Model/UMLElementImport" containment="true" eOpposite="#//Model/UMLElementImport/Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLProject" eSuperTypes="#//Model/UMLPackage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Project means top package that always exists. There can be many packages, models and subsystems under the project."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Author" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Company" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Copyright" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLModel" eSuperTypes="#//Model/UMLPackage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A model captures a view of physical system. It is an abstraction of the physical system, with a certain purpose. Different Models can be defined for the same physical system, where each model represents a view of the physical system defined by its purpose and abstraction level (for example, an analysis model, a design model, an implementation model)."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSubsystem" eSuperTypes="#//Model/UMLPackage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A subsystem is a grouping of model elements that represents a behavioral unit in a physical system. A subsystem offers interfaces and has operations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsInstantiable" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLElementImport">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element import defines the visibility and alias of a model element included in the namespace within a package, as a result of the package importing another package. In the metamodel an ElementImport reifies the relationship between a Package and an imported ModelElement. It allows redefinition of the name and the visibility for the imported ModelElement; that is, the ModelElement may be given another name (an alias) and/or a new visibility to be used within the importing Package. The default is no alias (the original name will be used) and private visibility relative to the importing Package."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Package" lowerBound="1"
+          eType="#//Model/UMLPackage" eOpposite="#//Model/UMLPackage/ElementImportItem"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" eType="#//Enumerations/UMLVisibilityKind"
+          defaultValueLiteral="Public"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alias" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpecification" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ImportedElement" lowerBound="1"
+          eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/ElementImport"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
