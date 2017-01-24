@@ -112,6 +112,10 @@
           eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/Participant"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PowertypeGeneralization"
           upperBound="-1" eType="#//Model/UMLGeneralization" eOpposite="#//Model/UMLGeneralization/Powertype"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Instance" upperBound="-1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/Classifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CreateAction" upperBound="-1"
+          eType="#//Model/UMLCreateAction" eOpposite="#//Model/UMLCreateAction/Instantiation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -144,6 +148,10 @@
           eType="#//Model/UMLMethod" eOpposite="#//Model/UMLMethod/Specification"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
           eOpposite="#//Model/UMLClassifier/Operation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CallAction" upperBound="-1"
+          eType="#//Model/UMLCallAction" eOpposite="#//Model/UMLCallAction/Operation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Occurrence" upperBound="-1"
+          eType="#//Model/UMLCallEvent" eOpposite="#//Model/UMLCallEvent/Operation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLParameter" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -156,6 +164,8 @@
           eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/TypedParameter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="BehavioralFeature" eType="#//Model/UMLBehavioralFeature"
           eOpposite="#//Model/UMLBehavioralFeature/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//Model/UMLEvent"
+          eOpposite="#//Model/UMLEvent/Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLBehavioralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -164,6 +174,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsQuery" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" upperBound="-1"
           eType="#//Model/UMLParameter" containment="true" eOpposite="#//Model/UMLParameter/BehavioralFeature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RaisedSignal" upperBound="-1"
+          eType="#//Model/UMLSignal" eOpposite="#//Model/UMLSignal/Context"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAttribute" eSuperTypes="#//Model/UMLStructuralFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -174,6 +186,8 @@
           eOpposite="#//Model/UMLClassifier/Attribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEnd" eType="#//Model/UMLAssociationEnd"
           eOpposite="#//Model/UMLAssociationEnd/Qualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeLink" upperBound="-1"
+          eType="#//Model/UMLAttributeLink" eOpposite="#//Model/UMLAttributeLink/Attribute"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLStructuralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -328,6 +342,8 @@
           eType="#//Model/UMLAssociationEnd" containment="true" eOpposite="#//Model/UMLAssociationEnd/Association"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationClass" eType="#//Model/UMLAssociationClass"
           eOpposite="#//Model/UMLAssociationClass/AssociationSide"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Link" upperBound="-1"
+          eType="#//Model/UMLLink" eOpposite="#//Model/UMLLink/Association"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEnd" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -350,6 +366,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Changeability" eType="#//Enumerations/UMLChangeableKind"
           defaultValueLiteral="Changeable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LinkEnd" upperBound="-1"
+          eType="#//Model/UMLLinkEnd" eOpposite="#//Model/UMLLinkEnd/AssociationEnd"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralization" eSuperTypes="#//Model/UMLRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -402,6 +420,321 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpecification" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ImportedElement" lowerBound="1"
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/ElementImport"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInstance" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The instance construct defines an entity to which a set of operations can be applied and which has a state that stores the effects of the operations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsMultiInstance" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Slot" upperBound="-1"
+          eType="#//Model/UMLAttributeLink" containment="true" eOpposite="#//Model/UMLAttributeLink/Instance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SendingStimulus" upperBound="-1"
+          eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/Sender"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReceivingStimulus" upperBound="-1"
+          eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/Receiver"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedInstance" upperBound="-1"
+          eType="#//Model/UMLInstance" containment="true" eOpposite="#//Model/UMLInstance/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLInstance"
+          eOpposite="#//Model/UMLInstance/OwnedInstance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeLink" upperBound="-1"
+          eType="#//Model/UMLAttributeLink" eOpposite="#//Model/UMLAttributeLink/Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Classifier" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/Instance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ComponentInstance" eType="#//Model/UMLComponentInstance"
+          eOpposite="#//Model/UMLComponentInstance/Resident"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedLink" upperBound="-1"
+          eType="#//Model/UMLLink" containment="true" eOpposite="#//Model/UMLLink/Owner"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLUseCaseInstance" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A use case instance is the performance of a sequence of actions specified in a use case. In the metamodel UseCaseInstance is a subclass of Instance. Each method performed by a UseCaseInstance is performed as an atomic transaction; that is, it is not interrupted by any other UseCaseInstance. An explicitly described UseCaseInstance is called a scenario."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStimulus" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A stimulus reifies a communication between two instances."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Arguments" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Return" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Iteration" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Branch" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/Stimulus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Activatee" upperBound="-1"
+          eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/Activator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Activator" eType="#//Model/UMLStimulus"
+          eOpposite="#//Model/UMLStimulus/Activatee"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Sender" lowerBound="1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/SendingStimulus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Receiver" lowerBound="1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/ReceivingStimulus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Successor" eType="#//Model/UMLStimulus"
+          eOpposite="#//Model/UMLStimulus/Predecessor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Predecessor" eType="#//Model/UMLStimulus"
+          eOpposite="#//Model/UMLStimulus/Successor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CommunicationLink" eType="#//Model/UMLLink"
+          eOpposite="#//Model/UMLLink/Stimulus"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAction" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An action is a specification of an executable statement that forms an abstraction of a computational procedure that results in a change in the state of the model, and can be realized by sending a message to an object or modifying a link or a value of an attribute."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Stimulus" eType="#//Model/UMLStimulus"
+          eOpposite="#//Model/UMLStimulus/Action"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Recurrence" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Target" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAsynchronous" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Script" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ActualArgument" upperBound="-1"
+          eType="#//Model/UMLArgument" containment="true" eOpposite="#//Model/UMLArgument/Action"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ActionSequence" eType="#//Model/UMLActionSequence"
+          eOpposite="#//Model/UMLActionSequence/Action"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAttributeLink" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An attribute link is a named slot in an instance, which holds the value of an attribute."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValueExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
+          eType="#//Model/UMLAttribute" eOpposite="#//Model/UMLAttribute/AttributeLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Instance" eType="#//Model/UMLInstance"
+          eOpposite="#//Model/UMLInstance/Slot"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Value" lowerBound="1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/AttributeLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LinkEnd" eType="#//Model/UMLLinkEnd"
+          eOpposite="#//Model/UMLLinkEnd/QualifiedValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLComponentInstance" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A component instance is an instance of a component that resides on a node instance. A component instance may have a state."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="NodeInstance" eType="#//Model/UMLNodeInstance"
+          eOpposite="#//Model/UMLNodeInstance/Resident"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Resident" upperBound="-1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/ComponentInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLDataValue" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A data value is an instance with no identity."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSubsystemInstance" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A subsystem instance is an instance of a subsystem. It is the runtime representation of a subsystem, hence it can be connected to links corresponding to associations of the subsystem. Its task is to handle incoming communication by re-directing stimuli to the appropriate receiver inside the subsystem."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLObject" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An object is an instance that originates from a class."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LinkObject" lowerBound="1"
+          eType="#//Model/UMLLinkObject" eOpposite="#//Model/UMLLinkObject/ObjectSide"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLNodeInstance" eSuperTypes="#//Model/UMLInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A node instance is an instance of a node. A collection of component instances may reside on the node instance."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Resident" upperBound="-1"
+          eType="#//Model/UMLComponentInstance" eOpposite="#//Model/UMLComponentInstance/NodeInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLArgument">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An argument is an expression describing how to determine the actual values passed in a dispatched request."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Action" eType="#//Model/UMLAction"
+          eOpposite="#//Model/UMLAction/ActualArgument"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLActionSequence" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An action sequence is a collection of actions."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Action" upperBound="-1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/ActionSequence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCreateAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A create action is an action resulting in the creation of an instance of some classifier."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Instantiation" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/CreateAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCallAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A call action is an action resulting in an invocation of an operation on an instance. A call action can be synchronous or asynchronous, indicating whether the operation is invoked synchronously or asynchronously."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" lowerBound="1"
+          eType="#//Model/UMLOperation" eOpposite="#//Model/UMLOperation/CallAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLReturnAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A return action is an action that results in returning a value to a caller."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSendAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A send action is an action that results in the (asynchronous) sending of a signal. The signal can be directed to a set of receivers via an objectSetExpression, or sent implicitly to an unspecified set of receivers, defined by some external mechanism. For example, if the signal is an exception, the receiver is determined by the underlying runtime system mechanisms."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Signal" lowerBound="1"
+          eType="#//Model/UMLSignal" eOpposite="#//Model/UMLSignal/SendAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTerminateAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A terminate action results in self-destruction of an object."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLUninterpretedAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An uninterpreted action represents an action that is not explicitly reified in the UML."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLDestroyAction" eSuperTypes="#//Model/UMLAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A destroy action is an action that results in the destruction of an object specified in the action."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSignal" eSuperTypes="#//Model/UMLClassifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A signal is a specification of an asynchronous stimulus communicated between instances. The receiving instance handles the signal by a state machine. Signal is a generalizable element and is defined independently of the classes handling the signal. A reception is a declaration that a class handles a signal, but the actual handling is specified by a state machine"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SendAction" upperBound="-1"
+          eType="#//Model/UMLSendAction" eOpposite="#//Model/UMLSendAction/Signal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Context" upperBound="-1"
+          eType="#//Model/UMLBehavioralFeature" eOpposite="#//Model/UMLBehavioralFeature/RaisedSignal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Reception" upperBound="-1"
+          eType="#//Model/UMLReception" eOpposite="#//Model/UMLReception/Signal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Occurance" upperBound="-1"
+          eType="#//Model/UMLSignalEvent" eOpposite="#//Model/UMLSignalEvent/Signal"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLLink" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The link construct is a connection between instances."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLInstance"
+          eOpposite="#//Model/UMLInstance/OwnedLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Association" lowerBound="1"
+          eType="#//Model/UMLAssociation" eOpposite="#//Model/UMLAssociation/Link"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Connection" upperBound="-1"
+          eType="#//Model/UMLLinkEnd" containment="true" eOpposite="#//Model/UMLLinkEnd/Link"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Stimulus" upperBound="-1"
+          eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/CommunicationLink"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLLinkEnd" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A link end is an end point of a link. In the metamodel LinkEnd is the part of a Link that connects to an Instance. It corresponds to an AssociationEnd of the Link’s Association."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Link" lowerBound="1"
+          eType="#//Model/UMLLink" eOpposite="#//Model/UMLLink/Connection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEnd" lowerBound="1"
+          eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/LinkEnd"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="QualifiedValue" upperBound="-1"
+          eType="#//Model/UMLAttributeLink" containment="true" eOpposite="#//Model/UMLAttributeLink/LinkEnd"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLLinkObject" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A link object is a link with its own set of attribute values and to which a set of operations may be applied."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectSide" lowerBound="1"
+          eType="#//Model/UMLObject" eOpposite="#//Model/UMLObject/LinkObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLException" eSuperTypes="#//Model/UMLSignal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An exception is a signal raised by behavioral features typically in case of execution faults. "/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLReception" eSuperTypes="#//Model/UMLBehavioralFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A reception is a declaration stating that a classifier is prepared to react to the receipt of a signal. The reception designates a signal and specifies the expected behavioral response. A reception is a summary of expected behavior. The details of handling a signal are specified by a state machine."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Specification" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAbstract" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Signal" lowerBound="1"
+          eType="#//Model/UMLSignal" eOpposite="#//Model/UMLSignal/Reception"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLUseCase" eSuperTypes="#//Model/UMLClassifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The use case construct is used to define the behavior of a system or other semantic entity without revealing the entity's internal structure. Each use case specifies a sequence of actions, including variants, that the entity can perform, interacting with actors of the entity."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtensionPoint" upperBound="-1"
+          eType="#//Model/UMLExtensionPoint" containment="true" eOpposite="#//Model/UMLExtensionPoint/UseCase"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Includer" upperBound="-1"
+          eType="#//Model/UMLInclude" eOpposite="#//Model/UMLInclude/Addition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Include" upperBound="-1"
+          eType="#//Model/UMLInclude" eOpposite="#//Model/UMLInclude/Base"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Extender" upperBound="-1"
+          eType="#//Model/UMLExtend" eOpposite="#//Model/UMLExtend/Base"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Extend" upperBound="-1"
+          eType="#//Model/UMLExtend" eOpposite="#//Model/UMLExtend/Extension"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLActor" eSuperTypes="#//Model/UMLClassifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An actor defines a coherent set of roles that users of an entity can play when interacting with the entity. An actor may be considered to play a separate role with regard to each use case with which it communicates."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLExtensionPoint" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An extension point references one or a collection of locations in a use case where the use case may be extended. In the metamodel an ExtensionPoint has a name and one or a collection of descriptions of locations in the behavior of the owning use case, where a piece of behavior may be inserted into the owning use case."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="UseCase" lowerBound="1"
+          eType="#//Model/UMLUseCase" eOpposite="#//Model/UMLUseCase/ExtensionPoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Extend" upperBound="-1"
+          eType="#//Model/UMLExtend" eOpposite="#//Model/UMLExtend/ExtensionPoint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInclude" eSuperTypes="#//Model/UMLRelationship">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An include relationship defines that a use case contains the behavior defined in another use case"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Addition" lowerBound="1"
+          eType="#//Model/UMLUseCase" eOpposite="#//Model/UMLUseCase/Includer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Base" lowerBound="1"
+          eType="#//Model/UMLUseCase" eOpposite="#//Model/UMLUseCase/Include"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLExtend" eSuperTypes="#//Model/UMLRelationship">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An extend relationship defines that instances of a use case may be augmented with some additional behavior defined in an extending use case."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Condition" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtensionPoint" lowerBound="1"
+          upperBound="-1" eType="#//Model/UMLExtensionPoint" eOpposite="#//Model/UMLExtensionPoint/Extend"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Base" lowerBound="1"
+          eType="#//Model/UMLUseCase" eOpposite="#//Model/UMLUseCase/Extender"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Extension" lowerBound="1"
+          eType="#//Model/UMLUseCase" eOpposite="#//Model/UMLUseCase/Extend"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLEvent" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An event is a specification of a type of observable occurrence. The occurrence that generates an event instance is assumed to take place at an instant in time with no duration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" upperBound="-1"
+          eType="#//Model/UMLParameter" containment="true" eOpposite="#//Model/UMLParameter/Event"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSignalEvent" eSuperTypes="#//Model/UMLEvent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A signal event represents the reception of a particular (asynchronous) signal."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Signal" lowerBound="1"
+          eType="#//Model/UMLSignal" eOpposite="#//Model/UMLSignal/Occurance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCallEvent" eSuperTypes="#//Model/UMLEvent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A call event represents the reception of a request to synchronously invoke a specific operation."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" lowerBound="1"
+          eType="#//Model/UMLOperation" eOpposite="#//Model/UMLOperation/Occurrence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTimeEvent" eSuperTypes="#//Model/UMLEvent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A TimeEvent models the expiration of a specific deadline."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="When" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLChangeEvent" eSuperTypes="#//Model/UMLEvent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A change event models an event that occurs when an explicit boolean expression becomes true as a result of a change in value of one or more attributes or associations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChangeExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
