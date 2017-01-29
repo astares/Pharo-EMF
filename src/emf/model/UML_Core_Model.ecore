@@ -41,6 +41,8 @@
           eType="#//Model/UMLDependency" eOpposite="#//Model/UMLDependency/Client"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ElementImport" upperBound="-1"
           eType="#//Model/UMLElementImport" eOpposite="#//Model/UMLElementImport/ImportedElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Behavior" upperBound="-1"
+          eType="#//Model/UMLStateMachine" containment="true" eOpposite="#//Model/UMLStateMachine/Context"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -408,7 +410,7 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsInstantiable" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLElementImport">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLElementImport" eSuperTypes="#//Model/UMLElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An element import defines the visibility and alias of a model element included in the namespace within a package, as a result of the package importing another package. In the metamodel an ElementImport reifies the relationship between a Package and an imported ModelElement. It allows redefinition of the name and the visibility for the imported ModelElement; that is, the ModelElement may be given another name (an alias) and/or a new visibility to be used within the importing Package. The default is no alias (the original name will be used) and private visibility relative to the importing Package."/>
       </eAnnotations>
@@ -489,6 +491,14 @@
           eType="#//Model/UMLArgument" containment="true" eOpposite="#//Model/UMLArgument/Action"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ActionSequence" eType="#//Model/UMLActionSequence"
           eOpposite="#//Model/UMLActionSequence/Action"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Transition" eType="#//Model/UMLTransition"
+          eOpposite="#//Model/UMLTransition/Effect"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EntryState" eType="#//Model/UMLState"
+          eOpposite="#//Model/UMLState/EntryAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExitState" eType="#//Model/UMLState"
+          eOpposite="#//Model/UMLState/ExitAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DoActivityState" eType="#//Model/UMLState"
+          eOpposite="#//Model/UMLState/DoActivity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAttributeLink" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -537,7 +547,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Resident" upperBound="-1"
           eType="#//Model/UMLComponentInstance" eOpposite="#//Model/UMLComponentInstance/NodeInstance"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLArgument">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLArgument" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An argument is an expression describing how to determine the actual values passed in a dispatched request."/>
       </eAnnotations>
@@ -709,6 +719,10 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" upperBound="-1"
           eType="#//Model/UMLParameter" containment="true" eOpposite="#//Model/UMLParameter/Event"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Transition" eType="#//Model/UMLTransition"
+          eOpposite="#//Model/UMLTransition/Trigger"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="State" upperBound="-1"
+          eType="#//Model/UMLState" eOpposite="#//Model/UMLState/DeferrableEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLSignalEvent" eSuperTypes="#//Model/UMLEvent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -735,6 +749,163 @@
         <details key="documentation" value="A change event models an event that occurs when an explicit boolean expression becomes true as a result of a change in value of one or more attributes or associations."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChangeExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStateMachine" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A state machine is a specification that describes all possible behaviors of some dynamic model element. Behavior is modeled as a traversal of a graph of state nodes interconnected by one or more joined transition arcs that are triggered by the dispatching of series of event instances."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Top" lowerBound="1" eType="#//Model/UMLState"
+          containment="true" eOpposite="#//Model/UMLState/StateMachine"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Transition" upperBound="-1"
+          eType="#//Model/UMLTransition" containment="true" eOpposite="#//Model/UMLTransition/StateMachine"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//Model/UMLModelElement"
+          eOpposite="#//Model/UMLModelElement/Behavior"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubmachineState" eType="#//Model/UMLSubmachineState"
+          eOpposite="#//Model/UMLSubmachineState/Submachine"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStateVertex" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A StateVertex is an abstraction of a node in a statechart graph. In general, it can be the source or destination of any number of transitions."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Outgoing" upperBound="-1"
+          eType="#//Model/UMLTransition" eOpposite="#//Model/UMLTransition/Source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Incoming" upperBound="-1"
+          eType="#//Model/UMLTransition" eOpposite="#//Model/UMLTransition/Target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ContainerState" eType="#//Model/UMLCompositeState"
+          eOpposite="#//Model/UMLCompositeState/Subvertex"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTransition" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A transition is a directed relationship between a source state vertex and a target state vertex."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GuardCondition" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="State" eType="#//Model/UMLState"
+          eOpposite="#//Model/UMLState/InternalTransition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Effect" upperBound="-1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/Transition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Trigger" upperBound="-1"
+          eType="#//Model/UMLEvent" containment="true" eOpposite="#//Model/UMLEvent/Transition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="StateMachine" eType="#//Model/UMLStateMachine"
+          eOpposite="#//Model/UMLStateMachine/Transition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
+          eType="#//Model/UMLStateVertex" eOpposite="#//Model/UMLStateVertex/Outgoing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Target" lowerBound="1"
+          eType="#//Model/UMLStateVertex" eOpposite="#//Model/UMLStateVertex/Incoming"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLPseudostate" eSuperTypes="#//Model/UMLStateVertex">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A pseudostate is an abstraction that encompasses different types of transient vertices in the state machine graph. They are used, typically, to connect multiple transitions into more complex state transitions paths."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PseudostateKind" eType="#//Enumerations/UMLPseudostateKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSynchState" eSuperTypes="#//Model/UMLStateVertex">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A synch state is a vertex used for synchronizing the concurrent regions of a statemachine. It is different from a state in the sense that it is not mapped to a boolean value (active, not active), but an integer. A synch state is used in conjunction with forks and joins to insure that one region leaves a particular state or states before another region can enter a particular state or states."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bound" eType="ecore:EDataType PharoUML.ecore#//Pharo/Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStubState" eSuperTypes="#//Model/UMLStateVertex">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A stub state can appear within a submachine state and represents an actual subvertex contained within the referenced state machine. It can serve as a source or destination of transitions that connect a state vertex in the containing state machine with a subvertex in the referenced state machine."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReferenceState" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLState" eSuperTypes="#//Model/UMLStateVertex">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A state is an abstract metaclass that models a situation during which some (usually implicit) invariant condition holds. The invariant may represent a static situation such as an object waiting for some external event to occur. However, it can also model dynamic conditions such as the process of performing some activity; that is, the model element under consideration enters the state when the activity commences and leaves it as soon as the activity is completed."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="StateMachine" eType="#//Model/UMLStateMachine"
+          eOpposite="#//Model/UMLStateMachine/Top"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InternalTransition" upperBound="-1"
+          eType="#//Model/UMLTransition" containment="true" eOpposite="#//Model/UMLTransition/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EntryAction" upperBound="-1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/EntryState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExitAction" upperBound="-1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/ExitState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DoActivity" upperBound="-1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/DoActivityState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DeferrableEvent" upperBound="-1"
+          eType="#//Model/UMLEvent" eOpposite="#//Model/UMLEvent/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCompositeState" eSuperTypes="#//Model/UMLState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A composite state is a state that contains other state vertices (states, pseudostates, etc.)."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsConcurrent" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Subvertex" upperBound="-1"
+          eType="#//Model/UMLStateVertex" containment="true" eOpposite="#//Model/UMLStateVertex/ContainerState"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSimpleState" eSuperTypes="#//Model/UMLState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A SimpleState is a state that does not have substates."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLFinalState" eSuperTypes="#//Model/UMLState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A special kind of state signifying that the enclosing composite state is completed. If the enclosing state is the top state, then it means that the entire state machine has completed. There can be one or more final states in a state machine."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLFlowFinalState" eSuperTypes="#//Model/UMLFinalState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A flow final state is a final state that terminates a flow."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSubmachineState" eSuperTypes="#//Model/UMLCompositeState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A submachine state is a state that executes a nested state machine. When an input transition to the submachine state is triggered, execution begins with the nested state machine. The outgoing transitions of a submachine state are enabled when the final state of the nested state machine is reached."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Submachine" lowerBound="1"
+          eType="#//Model/UMLStateMachine" eOpposite="#//Model/UMLStateMachine/SubmachineState"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLPartition" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A partition is a mechanism for dividing the states of an activity graph into groups. Partitions often correspond to organizational units in a business model. They may be used to allocate characteristics or resources among the states of an activity graph."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLActivityGraph" eSuperTypes="#//Model/UMLStateMachine">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An activity graph is a special case of a state machine that defines a computational process in terms of the control-flow and object-flow among its constituent actions. The primary purpose of activity graphs is to describe the states of an activity or process involving one or more classifiers."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLActionState" eSuperTypes="#//Model/UMLSimpleState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An action state represents the execution of an atomic action, typically the invocation of an operation. An action state is a simple state with an entry action whose only exit transition is triggered by the implicit event of completing the execution of the entry action."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsDynamic" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DynamicArguments" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DynamicMultiplicity"
+          eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSignalSendState" eSuperTypes="#//Model/UMLActionState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A signal send state is a state with no actions or internal transitions. Its specified action maps to a effect on the incoming transition between it and the previous state."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSubactivityState" eSuperTypes="#//Model/UMLSubmachineState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A subactivity state is a submachine state that executes a nested activity graph. When an input transition to the subactivity state is triggered, execution begins with the nested activity graph. The outgoing transitions of a subactivity state are enabled when the final state of the nested activity graph is reached; that is, when it completes its execution, or when the trigger events occur on the transitions."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLSignalAcceptState" eSuperTypes="#//Model/UMLActionState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A signal accept state is a state with no actions or internal transitions. Its specified event maps to trigger event on the outgoing transition between it and follwing state"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCallState" eSuperTypes="#//Model/UMLActionState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A call state is an action state that has exactly one call action as its entry action. It is useful in object flow modeling to reduce notational ambiguity over which action is taking input or providing output."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLObjectFlowState" eSuperTypes="#//Model/UMLSimpleState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An object flow state defines an object flow between actions in an activity graph. An instance of a particular classifier, possibly in a particular state, is available when an object flow state is ccupied. The generation of an object by an action in an action state may be modeled by an object flow state that is triggered by the completion of the action state. The use of the object in a subsequent action state may be modeled by connecting the output transition of the object flow state as an input transition to the action state. Generally each action places the object in a different state that is modeled as a distinct object flow state."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSynch" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLClassifierInState" eSuperTypes="#//Model/UMLClassifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A classifier-in-state characterizes instances of a given classifier that are in a particular state or states. In an activity graph, it may be used to specify input and/or output to an action through an object flow state. ClassifierInState is a child of Classifier and may be used in static structural models and collaborations. For example, it can be used to show associations that are only relevant when objects of a class are in a given state."/>
+      </eAnnotations>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
