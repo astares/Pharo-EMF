@@ -118,6 +118,10 @@
           eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/Classifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="CreateAction" upperBound="-1"
           eType="#//Model/UMLCreateAction" eOpposite="#//Model/UMLCreateAction/Instantiation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectFlowState" upperBound="-1"
+          eType="#//Model/UMLObjectFlowState" eOpposite="#//Model/UMLObjectFlowState/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClassifierInState" upperBound="-1"
+          eType="#//Model/UMLClassifierInState" eOpposite="#//Model/UMLClassifierInState/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -168,6 +172,8 @@
           eOpposite="#//Model/UMLBehavioralFeature/Parameter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//Model/UMLEvent"
           eOpposite="#//Model/UMLEvent/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="State" upperBound="-1"
+          eType="#//Model/UMLObjectFlowState" eOpposite="#//Model/UMLObjectFlowState/Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLBehavioralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -826,6 +832,8 @@
           eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/DoActivityState"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DeferrableEvent" upperBound="-1"
           eType="#//Model/UMLEvent" eOpposite="#//Model/UMLEvent/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClassifierState" upperBound="-1"
+          eType="#//Model/UMLClassifierInState" eOpposite="#//Model/UMLClassifierInState/InState"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLCompositeState" eSuperTypes="#//Model/UMLState">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -885,6 +893,10 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A subactivity state is a submachine state that executes a nested activity graph. When an input transition to the subactivity state is triggered, execution begins with the nested activity graph. The outgoing transitions of a subactivity state are enabled when the final state of the nested activity graph is reached; that is, when it completes its execution, or when the trigger events occur on the transitions."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsDynamic" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DynamicArguments" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DynamicMultiplicity"
+          eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLSignalAcceptState" eSuperTypes="#//Model/UMLActionState">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -901,11 +913,19 @@
         <details key="documentation" value="An object flow state defines an object flow between actions in an activity graph. An instance of a particular classifier, possibly in a particular state, is available when an object flow state is ccupied. The generation of an object by an action in an action state may be modeled by an object flow state that is triggered by the completion of the action state. The use of the object in a subsequent action state may be modeled by connecting the output transition of the object flow state as an input transition to the action state. Generally each action places the object in a different state that is modeled as a distinct object flow state."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSynch" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" upperBound="-1"
+          eType="#//Model/UMLParameter" eOpposite="#//Model/UMLParameter/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/ObjectFlowState"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLClassifierInState" eSuperTypes="#//Model/UMLClassifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A classifier-in-state characterizes instances of a given classifier that are in a particular state or states. In an activity graph, it may be used to specify input and/or output to an action through an object flow state. ClassifierInState is a child of Classifier and may be used in static structural models and collaborations. For example, it can be used to show associations that are only relevant when objects of a class are in a given state."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/ClassifierInState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InState" lowerBound="1"
+          upperBound="-1" eType="#//Model/UMLState" eOpposite="#//Model/UMLState/ClassifierState"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
