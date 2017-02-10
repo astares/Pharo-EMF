@@ -452,6 +452,10 @@
           eOpposite="#//Model/UMLComponentInstance/Resident"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedLink" upperBound="-1"
           eType="#//Model/UMLLink" containment="true" eOpposite="#//Model/UMLLink/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PlayedRole" upperBound="-1"
+          eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/ConformingInstance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CollaborationInstanceSet"
+          eType="#//Model/UMLCollaborationInstanceSet" eOpposite="#//Model/UMLCollaborationInstanceSet/ParticipatingInstance"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLUseCaseInstance" eSuperTypes="#//Model/UMLInstance">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -482,6 +486,10 @@
           eOpposite="#//Model/UMLStimulus/Successor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="CommunicationLink" eType="#//Model/UMLLink"
           eOpposite="#//Model/UMLLink/Stimulus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InteractionInstanceSet"
+          eType="#//Model/UMLInteractionInstanceSet" eOpposite="#//Model/UMLInteractionInstanceSet/ParticipatingStimulus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PlayedRole" upperBound="-1"
+          eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/ConformingStimulus"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAction" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -634,6 +642,10 @@
           eType="#//Model/UMLLinkEnd" containment="true" eOpposite="#//Model/UMLLinkEnd/Link"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Stimulus" upperBound="-1"
           eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/CommunicationLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PlayedRole" upperBound="-1"
+          eType="#//Model/UMLAssociationRole" eOpposite="#//Model/UMLAssociationRole/ConfirmingLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CollaborationInstanceSet"
+          eType="#//Model/UMLCollaborationInstanceSet" eOpposite="#//Model/UMLCollaborationInstanceSet/ParticipatingLink"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLLinkEnd" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -926,6 +938,78 @@
           eOpposite="#//Model/UMLClassifier/ClassifierInState"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InState" lowerBound="1"
           upperBound="-1" eType="#//Model/UMLState" eOpposite="#//Model/UMLState/ClassifierState"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLClassifierRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A classifier role is a specific role played by a participant in a collaboration. It specifies a restricted view of a classifier, defined by what is required in the collaboration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingInstance" upperBound="-1"
+          eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/PlayedRole"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMessage">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A message defines a particular communication between instances that is specified in an interaction."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingStimulus" upperBound="-1"
+          eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/PlayedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" eType="#//Model/UMLInteraction"
+          eOpposite="#//Model/UMLInteraction/Message"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInteraction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An interaction specifies the communication between instances performing a specific task. Each interaction is defined in the context of a collaboration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InteractionInstanceSet"
+          upperBound="-1" eType="#//Model/UMLInteractionInstanceSet" eOpposite="#//Model/UMLInteractionInstanceSet/Interaction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Context" lowerBound="1"
+          eType="#//Model/UMLCollaboration" eOpposite="#//Model/UMLCollaboration/Interaction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Message" lowerBound="1"
+          upperBound="-1" eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/Interaction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCollaboration" eSuperTypes="#//Model/UMLNamespace">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A collaboration describes how an operation or a classifier, like a use case, is realized by a set of classifiers and associations used in a specific way. The collaboration defines a set of roles to be played by instances and links, as well as a set of interactions that define the communication between the instances when they play the roles."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CollaborationInstanceSet"
+          upperBound="-1" eType="#//Model/UMLCollaborationInstanceSet" eOpposite="#//Model/UMLCollaborationInstanceSet/Collaboration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" upperBound="-1"
+          eType="#//Model/UMLInteraction" containment="true" eOpposite="#//Model/UMLInteraction/Context"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationRole" eSuperTypes="#//Model/UMLAssociation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An association role is a specific usage of an association needed in a collaboration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConfirmingLink" upperBound="-1"
+          eType="#//Model/UMLLink" eOpposite="#//Model/UMLLink/PlayedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCollaborationInstanceSet" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A collaboration instance set references a set of instances that jointly collaborate in performing the particular task specified by the collaboration of the collaboration instance. The instances in the collaboration instance set play the roles defined in the collaboration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InteractionInstanceSet"
+          upperBound="-1" eType="#//Model/UMLInteractionInstanceSet" containment="true"
+          eOpposite="#//Model/UMLInteractionInstanceSet/Context"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Collaboration" eType="#//Model/UMLCollaboration"
+          eOpposite="#//Model/UMLCollaboration/CollaborationInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingLink" upperBound="-1"
+          eType="#//Model/UMLLink" containment="true" eOpposite="#//Model/UMLLink/CollaborationInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingInstance"
+          lowerBound="1" upperBound="-1" eType="#//Model/UMLInstance" containment="true"
+          eOpposite="#//Model/UMLInstance/CollaborationInstanceSet"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionInstanceSet" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An interaction instance set is the set of stimuli that participate in a collaboration instance set."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Context" lowerBound="1"
+          eType="#//Model/UMLCollaborationInstanceSet" eOpposite="#//Model/UMLCollaborationInstanceSet/InteractionInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" eType="#//Model/UMLInteraction"
+          eOpposite="#//Model/UMLInteraction/InteractionInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingStimulus"
+          lowerBound="1" upperBound="-1" eType="#//Model/UMLStimulus" containment="true"
+          eOpposite="#//Model/UMLStimulus/InteractionInstanceSet"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
