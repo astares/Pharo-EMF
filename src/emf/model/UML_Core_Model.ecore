@@ -122,6 +122,11 @@
           eType="#//Model/UMLObjectFlowState" eOpposite="#//Model/UMLObjectFlowState/Type"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ClassifierInState" upperBound="-1"
           eType="#//Model/UMLClassifierInState" eOpposite="#//Model/UMLClassifierInState/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedCollaboration" upperBound="-1"
+          eType="#//Model/UMLCollaboration" containment="true" eOpposite="#//Model/UMLCollaboration/RepresentedClassifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedCollaborationInstanceSet"
+          upperBound="-1" eType="#//Model/UMLCollaborationInstanceSet" containment="true"
+          eOpposite="#//Model/UMLCollaborationInstanceSet/RepresentedClassifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -158,6 +163,11 @@
           eType="#//Model/UMLCallAction" eOpposite="#//Model/UMLCallAction/Operation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Occurrence" upperBound="-1"
           eType="#//Model/UMLCallEvent" eOpposite="#//Model/UMLCallEvent/Operation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedCollaboration" upperBound="-1"
+          eType="#//Model/UMLCollaboration" containment="true" eOpposite="#//Model/UMLCollaboration/RepresentedOperation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedCollaborationInstanceSet"
+          upperBound="-1" eType="#//Model/UMLCollaborationInstanceSet" containment="true"
+          eOpposite="#//Model/UMLCollaborationInstanceSet/RepresentedOperation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLParameter" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -947,7 +957,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingInstance" upperBound="-1"
           eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/PlayedRole"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLMessage">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMessage" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A message defines a particular communication between instances that is specified in an interaction."/>
       </eAnnotations>
@@ -956,7 +966,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" eType="#//Model/UMLInteraction"
           eOpposite="#//Model/UMLInteraction/Message"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLInteraction">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInteraction" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An interaction specifies the communication between instances performing a specific task. Each interaction is defined in the context of a collaboration."/>
       </eAnnotations>
@@ -965,7 +975,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Context" lowerBound="1"
           eType="#//Model/UMLCollaboration" eOpposite="#//Model/UMLCollaboration/Interaction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Message" lowerBound="1"
-          upperBound="-1" eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/Interaction"/>
+          upperBound="-1" eType="#//Model/UMLMessage" containment="true" eOpposite="#//Model/UMLMessage/Interaction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLCollaboration" eSuperTypes="#//Model/UMLNamespace">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -975,6 +985,14 @@
           upperBound="-1" eType="#//Model/UMLCollaborationInstanceSet" eOpposite="#//Model/UMLCollaborationInstanceSet/Collaboration"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" upperBound="-1"
           eType="#//Model/UMLInteraction" containment="true" eOpposite="#//Model/UMLInteraction/Context"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="UsedCollaboration" eType="#//Model/UMLCollaboration"
+          eOpposite="#//Model/UMLCollaboration/UserCollaboration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="UserCollaboration" eType="#//Model/UMLCollaboration"
+          eOpposite="#//Model/UMLCollaboration/UsedCollaboration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedClassifier"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/OwnedCollaboration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedOperation"
+          eType="#//Model/UMLOperation" eOpposite="#//Model/UMLOperation/OwnedCollaboration"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationRole" eSuperTypes="#//Model/UMLAssociation">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -998,6 +1016,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingInstance"
           lowerBound="1" upperBound="-1" eType="#//Model/UMLInstance" containment="true"
           eOpposite="#//Model/UMLInstance/CollaborationInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedClassifier"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/OwnedCollaborationInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedOperation"
+          eType="#//Model/UMLOperation" eOpposite="#//Model/UMLOperation/OwnedCollaborationInstanceSet"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionInstanceSet" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
