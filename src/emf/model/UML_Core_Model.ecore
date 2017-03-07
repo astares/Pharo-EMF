@@ -45,6 +45,8 @@
           eType="#//Model/UMLStateMachine" containment="true" eOpposite="#//Model/UMLStateMachine/Context"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ContentRole" upperBound="-1"
           eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/AvailableContent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Frame" eType="#//Model/UMLFrame"
+          eOpposite="#//Model/UMLFrame/RepresentedElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1020,6 +1022,10 @@
           eType="#//Model/UMLCollaboration" eOpposite="#//Model/UMLCollaboration/Interaction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Message" lowerBound="1"
           upperBound="-1" eType="#//Model/UMLMessage" containment="true" eOpposite="#//Model/UMLMessage/Interaction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Fragment" eType="#//Model/UMLInteractionFragment"
+          containment="true" eOpposite="#//Model/UMLInteractionFragment/EnclosingInteraction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedFrame" upperBound="-1"
+          eType="#//Model/UMLFrame" containment="true" eOpposite="#//Model/UMLFrame/Interaction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLCollaboration" eSuperTypes="#//Model/UMLNamespace">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1080,6 +1086,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingStimulus"
           lowerBound="1" upperBound="-1" eType="#//Model/UMLStimulus" containment="true"
           eOpposite="#//Model/UMLStimulus/InteractionInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Fragment" upperBound="-1"
+          eType="#//Model/UMLInteractionFragment" eOpposite="#//Model/UMLInteractionFragment/EnclosingInteractionInstanceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedFrame" upperBound="-1"
+          eType="#//Model/UMLFrame" containment="true" eOpposite="#//Model/UMLFrame/InteractionInstanceSet"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEndRole" eSuperTypes="#//Model/UMLAssociationEnd">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1096,6 +1106,10 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A combined fragment defines an expression of interaction fragments. A combined fragment is defined by an interaction operator and corresponding interaction operands."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InteractionOperator"
+          eType="#//Enumerations/UMLInteractionOperatorKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Operand" upperBound="-1"
+          eType="#//Model/UMLInteractionOperand" eOpposite="#//Model/UMLInteractionOperand/CombinedFragment"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionOperand" eSuperTypes="#//Model/UMLInteractionFragment">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1104,10 +1118,31 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Fragment" upperBound="-1"
           eType="#//Model/UMLInteractionFragment" eOpposite="#//Model/UMLInteractionFragment/EnclosingOperand"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Guard" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CombinedFragment" lowerBound="1"
+          eType="#//Model/UMLCombinedFragment" eOpposite="#//Model/UMLCombinedFragment/Operand"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionFragment" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="InteractionFragment is an abstract notion of the most general interaction unit. An interaction fragment is a piece of an interaction. Each interaction fragment is conceptually like an interaction by itself."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="EnclosingOperand" eType="#//Model/UMLInteractionOperand"
           eOpposite="#//Model/UMLInteractionOperand/Fragment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EnclosingInteraction"
+          eType="#//Model/UMLInteraction" eOpposite="#//Model/UMLInteraction/Fragment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EnclosingInteractionInstanceSet"
+          eType="#//Model/UMLInteractionInstanceSet" eOpposite="#//Model/UMLInteractionInstanceSet/Fragment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLFrame" eSuperTypes="#//Model/UMLModelElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="UMLFrame"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FrameKinde" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" eType="#//Model/UMLInteraction"
+          eOpposite="#//Model/UMLInteraction/OwnedFrame"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InteractionInstanceSet"
+          eType="#//Model/UMLInteractionInstanceSet" eOpposite="#//Model/UMLInteractionInstanceSet/OwnedFrame"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedElement" eType="#//Model/UMLModelElement"
+          eOpposite="#//Model/UMLModelElement/Frame"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
