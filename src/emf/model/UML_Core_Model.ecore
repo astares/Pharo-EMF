@@ -1215,6 +1215,9 @@
       <eLiterals name="Instance" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UMLInteractionOperatorKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Interaction operators enumeration"/>
+      </eAnnotations>
       <eLiterals name="Alt"/>
       <eLiterals name="Assert" value="1"/>
       <eLiterals name="Break" value="2"/>
