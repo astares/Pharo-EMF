@@ -43,6 +43,8 @@
           eType="#//Model/UMLElementImport" eOpposite="#//Model/UMLElementImport/ImportedElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Behavior" upperBound="-1"
           eType="#//Model/UMLStateMachine" containment="true" eOpposite="#//Model/UMLStateMachine/Context"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ContentRole" upperBound="-1"
+          eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/AvailableContent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLComment" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -127,6 +129,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedCollaborationInstanceSet"
           upperBound="-1" eType="#//Model/UMLCollaborationInstanceSet" containment="true"
           eOpposite="#//Model/UMLCollaborationInstanceSet/RepresentedClassifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClassifierRole" upperBound="-1"
+          eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/Base"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLFeature" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -136,6 +140,8 @@
           defaultValueLiteral="Instance"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConnectorEnd" upperBound="-1"
           eType="#//Model/UMLConnectorEnd" eOpposite="#//Model/UMLConnectorEnd/Role"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClassifierRole" eType="#//Model/UMLClassifierRole"
+          eOpposite="#//Model/UMLClassifierRole/AvailableFeature"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLMethod" eSuperTypes="#//Model/UMLBehavioralFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -206,6 +212,8 @@
           eOpposite="#//Model/UMLAssociationEnd/Qualifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeLink" upperBound="-1"
           eType="#//Model/UMLAttributeLink" eOpposite="#//Model/UMLAttributeLink/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" eType="#//Model/UMLAssociationEndRole"
+          eOpposite="#//Model/UMLAssociationEndRole/AvailableQualifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLStructuralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -362,6 +370,8 @@
           eOpposite="#//Model/UMLAssociationClass/AssociationSide"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Link" upperBound="-1"
           eType="#//Model/UMLLink" eOpposite="#//Model/UMLLink/Association"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationRole" upperBound="-1"
+          eType="#//Model/UMLAssociationRole" eOpposite="#//Model/UMLAssociationRole/Base"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEnd" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -386,6 +396,8 @@
           defaultValueLiteral="Changeable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="LinkEnd" upperBound="-1"
           eType="#//Model/UMLLinkEnd" eOpposite="#//Model/UMLLinkEnd/AssociationEnd"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" upperBound="-1"
+          eType="#//Model/UMLAssociationEndRole" eOpposite="#//Model/UMLAssociationEndRole/Base"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralization" eSuperTypes="#//Model/UMLRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -523,6 +535,8 @@
           eOpposite="#//Model/UMLState/ExitAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DoActivityState" eType="#//Model/UMLState"
           eOpposite="#//Model/UMLState/DoActivity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Message" eType="#//Model/UMLMessage"
+          eOpposite="#//Model/UMLMessage/Action"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLAttributeLink" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -949,13 +963,23 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="InState" lowerBound="1"
           upperBound="-1" eType="#//Model/UMLState" eOpposite="#//Model/UMLState/ClassifierState"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLClassifierRole">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLClassifierRole" eSuperTypes="#//Model/UMLClassifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A classifier role is a specific role played by a participant in a collaboration. It specifies a restricted view of a classifier, defined by what is required in the collaboration."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingInstance" upperBound="-1"
           eType="#//Model/UMLInstance" eOpposite="#//Model/UMLInstance/PlayedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SenderClientMessage"
+          upperBound="-1" eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/Sender"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReceiverClientMessage"
+          upperBound="-1" eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/Receiver"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AvailableContent" upperBound="-1"
+          eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/ContentRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AvailableFeature" upperBound="-1"
+          eType="#//Model/UMLFeature" containment="true" eOpposite="#//Model/UMLFeature/ClassifierRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Base" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/ClassifierRole"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLMessage" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -965,6 +989,26 @@
           eType="#//Model/UMLStimulus" eOpposite="#//Model/UMLStimulus/PlayedRole"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Interaction" eType="#//Model/UMLInteraction"
           eOpposite="#//Model/UMLInteraction/Message"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
+          eType="#//Model/UMLAction" containment="true" eOpposite="#//Model/UMLAction/Message"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Arguments" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Return" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Iteration" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Branch" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Predecessor" eType="#//Model/UMLMessage"
+          eOpposite="#//Model/UMLMessage/Successor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Successor" eType="#//Model/UMLMessage"
+          eOpposite="#//Model/UMLMessage/Predecessor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Activatee" upperBound="-1"
+          eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/Activator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Activator" eType="#//Model/UMLMessage"
+          eOpposite="#//Model/UMLMessage/Activatee"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="CommunicationConnection"
+          eType="#//Model/UMLAssociationRole" eOpposite="#//Model/UMLAssociationRole/Message"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Sender" lowerBound="1"
+          eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/SenderClientMessage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Receiver" lowerBound="1"
+          eType="#//Model/UMLClassifierRole" eOpposite="#//Model/UMLClassifierRole/ReceiverClientMessage"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLInteraction" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1001,6 +1045,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConfirmingLink" upperBound="-1"
           eType="#//Model/UMLLink" eOpposite="#//Model/UMLLink/PlayedRole"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Base" eType="#//Model/UMLAssociation"
+          eOpposite="#//Model/UMLAssociation/AssociationRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Message" upperBound="-1"
+          eType="#//Model/UMLMessage" eOpposite="#//Model/UMLMessage/CommunicationConnection"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLCollaborationInstanceSet" eSuperTypes="#//Model/UMLModelElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1032,6 +1080,34 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ParticipatingStimulus"
           lowerBound="1" upperBound="-1" eType="#//Model/UMLStimulus" containment="true"
           eOpposite="#//Model/UMLStimulus/InteractionInstanceSet"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAssociationEndRole" eSuperTypes="#//Model/UMLAssociationEnd">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An association-end role specifies an endpoint of an association as used in a collaboration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AvailableQualifier" upperBound="-1"
+          eType="#//Model/UMLAttribute" containment="true" eOpposite="#//Model/UMLAttribute/AssociationEndRole"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CollaborationMultiplicity"
+          eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Base" eType="#//Model/UMLAssociationEnd"
+          eOpposite="#//Model/UMLAssociationEnd/AssociationEndRole"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLCombinedFragment" eSuperTypes="#//Model/UMLInteractionFragment">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A combined fragment defines an expression of interaction fragments. A combined fragment is defined by an interaction operator and corresponding interaction operands."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionOperand" eSuperTypes="#//Model/UMLInteractionFragment">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An InteractionOperand is contained in a CombinedFragment. An InteractionOperand represent one operand of the expression given by the enclosing CombinedFragment."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Fragment" upperBound="-1"
+          eType="#//Model/UMLInteractionFragment" eOpposite="#//Model/UMLInteractionFragment/EnclosingOperand"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Guard" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLInteractionFragment" eSuperTypes="#//Model/UMLModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EnclosingOperand" eType="#//Model/UMLInteractionOperand"
+          eOpposite="#//Model/UMLInteractionOperand/Fragment"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
@@ -1080,23 +1156,6 @@
       <eLiterals name="Changeable" value="1"/>
       <eLiterals name="Frozen" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="UMLInteractionOperatorKind">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Interaction operators"/>
-      </eAnnotations>
-      <eLiterals name="Alt"/>
-      <eLiterals name="Assert" value="1"/>
-      <eLiterals name="Break" value="2"/>
-      <eLiterals name="Consider" value="3"/>
-      <eLiterals name="Ignore" value="4"/>
-      <eLiterals name="Loop" value="5"/>
-      <eLiterals name="Neg" value="6"/>
-      <eLiterals name="Opt" value="7"/>
-      <eLiterals name="Par" value="8"/>
-      <eLiterals name="Region" value="9"/>
-      <eLiterals name="Seq" value="10"/>
-      <eLiterals name="Strict" value="11"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UMLOrderingKind">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Defines an enumeration that specifies how the elements of a set are arranged. Used in conjunction with elements that have a multiplicity in cases when the multiplicity value modify the set. The intent is that the set of enumeration literals be open for new values to be added by tools for purposes of design, code generation, etc. For example, a value of sorted might be used for a design specification."/>
@@ -1119,6 +1178,20 @@
       </eAnnotations>
       <eLiterals name="Classifier"/>
       <eLiterals name="Instance" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UMLInteractionOperatorKind">
+      <eLiterals name="Alt"/>
+      <eLiterals name="Assert" value="1"/>
+      <eLiterals name="Break" value="2"/>
+      <eLiterals name="Consider" value="3"/>
+      <eLiterals name="Ignore" value="4"/>
+      <eLiterals name="Loop" value="5"/>
+      <eLiterals name="Neg" value="6"/>
+      <eLiterals name="Opt" value="7"/>
+      <eLiterals name="Par" value="8"/>
+      <eLiterals name="Region" value="9"/>
+      <eLiterals name="Seq" value="10"/>
+      <eLiterals name="Strict" value="11"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
