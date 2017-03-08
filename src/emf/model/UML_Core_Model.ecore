@@ -105,8 +105,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TypedParameter" upperBound="-1"
           eType="#//Model/UMLParameter" eOpposite="#//Model/UMLParameter/Type"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Model/UMLOperation"
-          containment="true" eOpposite="#//Model/UMLOperation/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" upperBound="-1"
+          eType="#//Model/UMLOperation" containment="true" eOpposite="#//Model/UMLOperation/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" upperBound="-1"
           eType="#//Model/UMLAttribute" containment="true" eOpposite="#//Model/UMLAttribute/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TypedFeature" upperBound="-1"
@@ -204,20 +204,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="RaisedSignal" upperBound="-1"
           eType="#//Model/UMLSignal" eOpposite="#//Model/UMLSignal/Context"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLAttribute" eSuperTypes="#//Model/UMLStructuralFeature">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="An attribute is a named slot within a classifier that describes a range of values that instances of the classifier may hold."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitialValue" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
-          eOpposite="#//Model/UMLClassifier/Attribute"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEnd" eType="#//Model/UMLAssociationEnd"
-          eOpposite="#//Model/UMLAssociationEnd/Qualifier"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeLink" upperBound="-1"
-          eType="#//Model/UMLAttributeLink" eOpposite="#//Model/UMLAttributeLink/Attribute"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" eType="#//Model/UMLAssociationEndRole"
-          eOpposite="#//Model/UMLAssociationEndRole/AvailableQualifier"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLStructuralFeature" eSuperTypes="#//Model/UMLFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A structural feature refers to a static feature of a model element, such as an attribute.&#xD;&#xA;&#xD;&#xA;In the metamodel, a StructuralFeature declares a structural aspect of an Instance of a Classifier, such as an Attribute. For example, it specifies the multiplicity and changeability of the StructuralFeature. StructuralFeature is an abstract metaclass.&#xD;&#xA;&#xD;&#xA;"/>
@@ -232,6 +218,20 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="TypeExpression" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1"
           eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/TypedFeature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLAttribute" eSuperTypes="#//Model/UMLStructuralFeature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An attribute is a named slot within a classifier that describes a range of values that instances of the classifier may hold."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitialValue" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" eType="#//Model/UMLClassifier"
+          eOpposite="#//Model/UMLClassifier/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEnd" eType="#//Model/UMLAssociationEnd"
+          eOpposite="#//Model/UMLAssociationEnd/Qualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeLink" upperBound="-1"
+          eType="#//Model/UMLAttributeLink" eOpposite="#//Model/UMLAttributeLink/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" eType="#//Model/UMLAssociationEndRole"
+          eOpposite="#//Model/UMLAssociationEndRole/AvailableQualifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLClass" eSuperTypes="#//Model/UMLClassifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
