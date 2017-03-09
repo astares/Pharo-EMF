@@ -60,7 +60,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="AnnotatedElement" upperBound="-1"
           eType="#//Model/UMLModelElement" eOpposite="#//Model/UMLModelElement/Comment"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateParameter" eSuperTypes="#//Model/UMLElement">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLTemplateParameter" eSuperTypes="#//Model/UMLNamedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Defines the relationship between a template (a ModelElement) and its parameter (a ModelElement). A ModelElement with at least one templateParameter association is a template (by definition)."/>
       </eAnnotations>
@@ -1144,6 +1144,22 @@
           eType="#//Model/UMLInteractionInstanceSet" eOpposite="#//Model/UMLInteractionInstanceSet/OwnedFrame"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="RepresentedElement" eType="#//Model/UMLModelElement"
           eOpposite="#//Model/UMLModelElement/Frame"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLStereotype" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A stereotype"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExtendedElement" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicityRange" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//Model/UMLMultiplicity"
+          eOpposite="#//Model/UMLMultiplicity/range"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicity" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Model/UMLMultiplicityRange"
+          eOpposite="#//Model/UMLMultiplicityRange/multiplicity"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Enumerations" nsURI="href://pharo.org/XMI" nsPrefix="xmi">
