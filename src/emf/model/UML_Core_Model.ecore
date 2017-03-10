@@ -85,7 +85,7 @@
         <details key="documentation" value="A generalizable element is a model element that may participate in a generalization relationship."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeave" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAbstract" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Generalization" upperBound="-1"
           eType="#//Model/UMLGeneralization" eOpposite="#//Model/UMLGeneralization/Child"/>
@@ -401,6 +401,7 @@
           eType="#//Model/UMLLinkEnd" eOpposite="#//Model/UMLLinkEnd/AssociationEnd"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" upperBound="-1"
           eType="#//Model/UMLAssociationEndRole" eOpposite="#//Model/UMLAssociationEndRole/Base"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Model/UMLClassifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralization" eSuperTypes="#//Model/UMLRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
