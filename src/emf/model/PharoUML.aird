@@ -2227,7 +2227,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_fy6IEN6YEeay8fFDvIcYoA" sourceNode="_2XL8AN5FEeay8fFDvIcYoA" targetNode="_d7foYN51Eeay8fFDvIcYoA" beginLabel="[0..1] Owner" endLabel="[0..1] Operation">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_fy6IEN6YEeay8fFDvIcYoA" sourceNode="_2XL8AN5FEeay8fFDvIcYoA" targetNode="_d7foYN51Eeay8fFDvIcYoA" beginLabel="[0..1] Owner" endLabel="[0..*] Operation">
       <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/Operation"/>
       <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/Operation"/>
       <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLOperation/Owner"/>
@@ -4654,6 +4654,22 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_PeGWNN8vEeay8fFDvIcYoA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_PeGWNd8vEeay8fFDvIcYoA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk12QAVhEeetFel7bcjdQw" type="3010" element="_PkqQEAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk12QQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk12QgVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk2dUAVhEeetFel7bcjdQw" type="3010" element="_PkqQEgVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk2dUQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk2dUgVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk2dUwVhEeetFel7bcjdQw" type="3010" element="_Pkq3IQVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk2dVAVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk2dVQVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk3EYAVhEeetFel7bcjdQw" type="3010" element="_Pkq3IwVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk3EYQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk3EYgVhEeetFel7bcjdQw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_Pd_ogd8vEeay8fFDvIcYoA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Pd_ogt8vEeay8fFDvIcYoA"/>
           </children>
@@ -4701,9 +4717,21 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_xTji0d8xEeay8fFDvIcYoA" fontColor="8224125" fontName="Segoe UI" fontHeight="8" italic="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_xTji0t8xEeay8fFDvIcYoA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk3EYwVhEeetFel7bcjdQw" type="3010" element="_PksFQAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk3EZAVhEeetFel7bcjdQw" fontColor="8224125" fontName="Segoe UI" fontHeight="8" italic="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk3EZQVhEeetFel7bcjdQw"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_xTji098xEeay8fFDvIcYoA" visible="false" type="3010" element="_xTf4cd8xEeay8fFDvIcYoA">
               <styles xmi:type="notation:FontStyle" xmi:id="_xTji1N8xEeay8fFDvIcYoA" fontColor="8224125" fontName="Segoe UI" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_xTji1d8xEeay8fFDvIcYoA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk3EZgVhEeetFel7bcjdQw" type="3010" element="_PksFQgVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk3EZwVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk3EaAVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk3rcAVhEeetFel7bcjdQw" type="3010" element="_PkssUAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk3rcQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk3rcgVhEeetFel7bcjdQw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_xTi7wt8xEeay8fFDvIcYoA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_xTi7w98xEeay8fFDvIcYoA"/>
@@ -4750,6 +4778,34 @@
             <children xmi:type="notation:Node" xmi:id="_b6BkA98yEeay8fFDvIcYoA" visible="false" type="3010" element="_b57dYd8yEeay8fFDvIcYoA">
               <styles xmi:type="notation:FontStyle" xmi:id="_b6BkBN8yEeay8fFDvIcYoA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_b6BkBd8yEeay8fFDvIcYoA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk4SgAVhEeetFel7bcjdQw" type="3010" element="_PktTYAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk4SgQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk4SggVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk4SgwVhEeetFel7bcjdQw" type="3010" element="_Pkt6cAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk4ShAVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk4ShQVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk4ShgVhEeetFel7bcjdQw" type="3010" element="_Pkt6cgVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk4ShwVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk4SiAVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk45kAVhEeetFel7bcjdQw" type="3010" element="_Pkt6dAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk45kQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk45kgVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk45kwVhEeetFel7bcjdQw" type="3010" element="_PkuhgAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk45lAVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk45lQVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk784AVhEeetFel7bcjdQw" type="3010" element="_PkuhggVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk784QVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk784gVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk784wVhEeetFel7bcjdQw" type="3010" element="_PkuhhAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk785AVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk785QVhEeetFel7bcjdQw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_b5_u0t8yEeay8fFDvIcYoA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_b5_u098yEeay8fFDvIcYoA"/>
@@ -4801,6 +4857,14 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_nFoZod9aEeay8fFDvIcYoA" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_nFoZot9aEeay8fFDvIcYoA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk8j8AVhEeetFel7bcjdQw" type="3010" element="_PkvvoAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk8j8QVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk8j8gVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk8j8wVhEeetFel7bcjdQw" type="3010" element="_PkvvogVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk8j9AVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk8j9QVhEeetFel7bcjdQw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_gzREst9PEeay8fFDvIcYoA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_gzREs99PEeay8fFDvIcYoA"/>
           </children>
@@ -4810,6 +4874,14 @@
         <children xmi:type="notation:Node" xmi:id="_naURMN9PEeay8fFDvIcYoA" type="2003" element="_naNjgN9PEeay8fFDvIcYoA">
           <children xmi:type="notation:Node" xmi:id="_naURM99PEeay8fFDvIcYoA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_naU4QN9PEeay8fFDvIcYoA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Pk9LAAVhEeetFel7bcjdQw" type="3010" element="_PkvvpAVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk9LAQVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk9LAgVhEeetFel7bcjdQw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Pk9LAwVhEeetFel7bcjdQw" type="3010" element="_PkwWsQVhEeetFel7bcjdQw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Pk9LBAVhEeetFel7bcjdQw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pk9LBQVhEeetFel7bcjdQw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_naU4Qd9PEeay8fFDvIcYoA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_naU4Qt9PEeay8fFDvIcYoA"/>
           </children>
@@ -5228,6 +5300,38 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkqQEAVhEeetFel7bcjdQw" name=" ElementImport : UMLElementImport" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/ElementImport"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/ElementImport"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkqQEQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkqQEgVhEeetFel7bcjdQw" name=" Behavior : UMLStateMachine" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/Behavior"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/Behavior"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkq3IAVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Pkq3IQVhEeetFel7bcjdQw" name=" ContentRole : UMLClassifierRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/ContentRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/ContentRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkq3IgVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Pkq3IwVhEeetFel7bcjdQw" name=" Frame : UMLFrame" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/Frame"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLModelElement/Frame"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkq3JAVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_UKS_kN8vEeay8fFDvIcYoA" name="UMLRelationship" tooltipText="" outgoingEdges="_VRpCIN8vEeay8fFDvIcYoA" incomingEdges="_K2vpMN8yEeay8fFDvIcYoA _3Va3cN9ZEeay8fFDvIcYoA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="UML_Core_Model.ecore#//Model/UMLRelationship"/>
@@ -5342,12 +5446,37 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PksFQAVhEeetFel7bcjdQw" name=" ClassifierRole : UMLClassifierRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLFeature/ClassifierRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLFeature/ClassifierRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PksFQQVhEeetFel7bcjdQw" labelColor="125,125,125" labelAlignment="LEFT">
+          <labelFormat>italic</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_xTf4cd8xEeay8fFDvIcYoA" name=" Type : UMLClassifier" visible="false" tooltipText="">
         <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLStructuralFeature/Type"/>
         <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLStructuralFeature/Type"/>
         <graphicalFilters xmi:type="diagram:HideFilter" xmi:id="_dN7b4d8yEeay8fFDvIcYoA"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_xTf4c98xEeay8fFDvIcYoA" labelColor="125,125,125" labelAlignment="LEFT" description="_xTf4ct8xEeay8fFDvIcYoA">
           <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PksFQgVhEeetFel7bcjdQw" name=" AttributeLink : UMLAttributeLink" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAttribute/AttributeLink"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAttribute/AttributeLink"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PksFQwVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkssUAVhEeetFel7bcjdQw" name=" AssociationEndRole : UMLAssociationEndRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAttribute/AssociationEndRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAttribute/AssociationEndRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkssUQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
@@ -5468,6 +5597,62 @@
         <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/OwnedConnector"/>
         <graphicalFilters xmi:type="diagram:HideFilter" xmi:id="_efQg4t8yEeay8fFDvIcYoA"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_b57dYt8yEeay8fFDvIcYoA" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PktTYAVhEeetFel7bcjdQw" name=" Instance : UMLInstance" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/Instance"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/Instance"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PktTYQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Pkt6cAVhEeetFel7bcjdQw" name=" CreateAction : UMLCreateAction" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/CreateAction"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/CreateAction"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkt6cQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Pkt6cgVhEeetFel7bcjdQw" name=" ObjectFlowState : UMLObjectFlowState" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ObjectFlowState"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ObjectFlowState"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkt6cwVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Pkt6dAVhEeetFel7bcjdQw" name=" ClassifierInState : UMLClassifierInState" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ClassifierInState"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ClassifierInState"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Pkt6dQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkuhgAVhEeetFel7bcjdQw" name=" OwnedCollaboration : UMLCollaboration" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/OwnedCollaboration"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/OwnedCollaboration"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkuhgQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkuhggVhEeetFel7bcjdQw" name=" OwnedCollaborationInstanceSet : UMLCollaborationInstanceSet" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/OwnedCollaborationInstanceSet"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/OwnedCollaborationInstanceSet"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkuhgwVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkuhhAVhEeetFel7bcjdQw" name=" ClassifierRole : UMLClassifierRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ClassifierRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLClassifier/ClassifierRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkuhhQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
@@ -5596,9 +5781,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Wy-DcN9aEeay8fFDvIcYoA" name="AggregationKind : UMLAggregationKind = None" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Wy-DcN9aEeay8fFDvIcYoA" name="Aggregation : UMLAggregationKind = None" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_a1L7sN9aEeay8fFDvIcYoA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -5628,6 +5813,22 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkvvoAVhEeetFel7bcjdQw" name=" LinkEnd : UMLLinkEnd" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/LinkEnd"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/LinkEnd"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkvvoQVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkvvogVhEeetFel7bcjdQw" name=" AssociationEndRole : UMLAssociationEndRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AssociationEndRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AssociationEndRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkvvowVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_naNjgN9PEeay8fFDvIcYoA" name="UMLAssociation" tooltipText="" outgoingEdges="_7eVqEN9YEeay8fFDvIcYoA _3Va3cN9ZEeay8fFDvIcYoA" incomingEdges="_jiSykN9WEeay8fFDvIcYoA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="UML_Core_Model.ecore#//Model/UMLAssociation"/>
@@ -5642,6 +5843,22 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkvvpAVhEeetFel7bcjdQw" name=" Link : UMLLink" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociation/Link"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociation/Link"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkwWsAVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PkwWsQVhEeetFel7bcjdQw" name=" AssociationRole : UMLAssociationRole" tooltipText="">
+        <target xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociation/AssociationRole"/>
+        <semanticElements xmi:type="ecore:EReference" href="UML_Core_Model.ecore#//Model/UMLAssociation/AssociationRole"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PkwWsgVhEeetFel7bcjdQw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_pG3SkN9PEeay8fFDvIcYoA" name="UMLAssociationClass" tooltipText="" outgoingEdges="_twPRcN9PEeay8fFDvIcYoA" incomingEdges="_x5fl0N9PEeay8fFDvIcYoA _7eVqEN9YEeay8fFDvIcYoA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="UML_Core_Model.ecore#//Model/UMLAssociationClass"/>
@@ -13794,8 +14011,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Fd2GUuGtEeaW6OUHLSY9Pw" name="AggregationKind : UMLAggregationKind = None" visible="false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
+        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
         <graphicalFilters xmi:type="diagram:HideFilter" xmi:id="_JYq9I-GtEeaW6OUHLSY9Pw"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Fd2GU-GtEeaW6OUHLSY9Pw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
@@ -26029,8 +26246,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_KBvAEPL3EeaeufgBu65GVw" name="AggregationKind : UMLAggregationKind = None" visible="false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/AggregationKind"/>
+        <target xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="UML_Core_Model.ecore#//Model/UMLAssociationEnd/Aggregation"/>
         <graphicalFilters xmi:type="diagram:HideFilter" xmi:id="_NTxYkvL3EeaeufgBu65GVw"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_KBvnIPL3EeaeufgBu65GVw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>

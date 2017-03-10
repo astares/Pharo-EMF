@@ -390,7 +390,7 @@
           defaultValueLiteral="True"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ordering" eType="#//Enumerations/UMLOrderingKind"
           defaultValueLiteral="Ordered"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AggregationKind" eType="#//Enumerations/UMLAggregationKind"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Aggregation" eType="#//Enumerations/UMLAggregationKind"
           defaultValueLiteral="None"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetScope" eType="#//Enumerations/UMLScopeKind"
           defaultValueLiteral="Instance"/>
