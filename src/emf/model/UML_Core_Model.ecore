@@ -1154,7 +1154,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExtendedElement" eType="ecore:EDataType PharoUML.ecore#//Pharo/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicityRange" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIElement">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicityRange" eSuperTypes="#//Model/UMLElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Range for a Multiplicity"/>
       </eAnnotations>
@@ -1163,7 +1163,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType PharoUML.ecore#//Pharo/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType PharoUML.ecore#//Pharo/Integer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicity" eSuperTypes="UML_XMI_Extensions.ecore#//Model/XMIElement">
+    <eClassifiers xsi:type="ecore:EClass" name="UMLMultiplicity" eSuperTypes="#//Model/UMLElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A Multiplicity"/>
       </eAnnotations>
