@@ -115,8 +115,8 @@
           eType="#//Model/UMLPort" eOpposite="#//Model/UMLPort/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedConnector" upperBound="-1"
           eType="#//Model/UMLConnector" containment="true" eOpposite="#//Model/UMLConnector/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Association" upperBound="-1"
-          eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/Participant"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Participant" upperBound="-1"
+          eType="#//Model/UMLAssociationEnd" eOpposite="#//Model/UMLAssociationEnd/Type"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PowertypeGeneralization"
           upperBound="-1" eType="#//Model/UMLGeneralization" eOpposite="#//Model/UMLGeneralization/Powertype"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Instance" upperBound="-1"
@@ -382,8 +382,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Qualifier" upperBound="-1"
           eType="#//Model/UMLAttribute" containment="true" eOpposite="#//Model/UMLAttribute/AssociationEnd"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Participant" lowerBound="1"
-          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/Association"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1"
+          eType="#//Model/UMLClassifier" eOpposite="#//Model/UMLClassifier/Participant"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Association" lowerBound="1"
           eType="#//Model/UMLAssociation" eOpposite="#//Model/UMLAssociation/Connection"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsNavigable" eType="ecore:EDataType PharoUML.ecore#//Pharo/Boolean"
@@ -401,7 +401,6 @@
           eType="#//Model/UMLLinkEnd" eOpposite="#//Model/UMLLinkEnd/AssociationEnd"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AssociationEndRole" upperBound="-1"
           eType="#//Model/UMLAssociationEndRole" eOpposite="#//Model/UMLAssociationEndRole/Base"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Model/UMLClassifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UMLGeneralization" eSuperTypes="#//Model/UMLRelationship">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
